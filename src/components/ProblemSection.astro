@@ -1,0 +1,30 @@
+---
+import { Bug, MessageSquareWarning, ShieldAlert, UserX } from '@lucide/astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const icons = [Bug, MessageSquareWarning, ShieldAlert, UserX];
+---
+
+<section class="mx-auto max-w-6xl px-6 py-24">
+  <h2 class="mx-auto max-w-3xl text-center text-3xl font-bold tracking-tight text-paper sm:text-4xl">
+    {t.problem.title}
+  </h2>
+
+  <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      t.problem.cards.map((card, i) => {
+        const Icon = icons[i];
+        return (
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6">
+            <Icon class="h-6 w-6 text-crimson" stroke-width={1.75} />
+            <h3 class="mt-4 text-base font-semibold text-paper">{card.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{card.description}</p>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

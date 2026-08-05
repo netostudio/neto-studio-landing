@@ -1,0 +1,22 @@
+---
+interface Props {
+  level: 'CRITICAL' | 'HIGH' | 'MEDIUM';
+}
+
+const { level } = Astro.props;
+
+const styles: Record<Props['level'], string> = {
+  CRITICAL: 'bg-crimson/10 text-crimson border-crimson/30',
+  HIGH: 'bg-amber-500/10 text-amber-500 border-amber-500/30',
+  MEDIUM: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/30',
+};
+---
+
+<span
+  class:list={[
+    'inline-flex w-fit shrink-0 items-center rounded border px-2 py-0.5 font-mono text-xs font-semibold tracking-wide',
+    styles[level],
+  ]}
+>
+  {level}
+</span>

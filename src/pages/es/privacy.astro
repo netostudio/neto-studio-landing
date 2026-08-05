@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { title, lastUpdated, sections } = t.legal.privacy;
+---
+
+<Layout>
+  <Header />
+  <main class="mx-auto max-w-3xl px-6 py-24">
+    <h1 class="text-3xl font-bold tracking-tight text-paper">{title}</h1>
+    <p class="mt-2 text-sm text-muted">{lastUpdated}</p>
+
+    <div class="mt-10 space-y-8 text-sm leading-relaxed text-muted">
+      {
+        sections.map((section) => (
+          <section>
+            <h2 class="text-base font-semibold text-paper">{section.heading}</h2>
+            <p class="mt-2">{section.body}</p>
+          </section>
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+</Layout>

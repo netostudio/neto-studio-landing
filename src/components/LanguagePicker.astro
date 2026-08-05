@@ -1,0 +1,27 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const locales = Object.keys(languages) as (keyof typeof languages)[];
+---
+
+<div class="flex items-center gap-1 text-sm font-medium" aria-label="Language switcher">
+  {
+    locales.map((locale, i) => (
+      <>
+        {i > 0 && <span class="text-muted/50" aria-hidden="true">|</span>}
+        <a
+          href={getLocalizedPath(Astro.url, locale)}
+          class:list={[
+            'px-1.5 py-1 transition-colors',
+            locale === lang ? 'text-paper' : 'text-muted hover:text-paper',
+          ]}
+          aria-current={locale === lang ? 'true' : undefined}
+        >
+          {locale.toUpperCase()}
+        </a>
+      </>
+    ))
+  }
+</div>

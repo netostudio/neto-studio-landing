@@ -1,0 +1,56 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_ES' };
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    {
+      Object.keys(languages).map((locale) => (
+        <link
+          rel="alternate"
+          hreflang={locale}
+          href={new URL(getLocalizedPath(Astro.url, locale as keyof typeof languages), Astro.site)}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(getLocalizedPath(Astro.url, 'en'), Astro.site)}
+    />
+
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="neto.studio" />
+    <meta property="og:locale" content={ogLocaleMap[lang]} />
+    {
+      Object.keys(languages)
+        .filter((locale) => locale !== lang)
+        .map((locale) => <meta property="og:locale:alternate" content={ogLocaleMap[locale]} />)
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
