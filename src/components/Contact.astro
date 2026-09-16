@@ -11,14 +11,14 @@ const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL;
     <span class="text-xs font-semibold uppercase tracking-wider text-emerald-500">
       {t.contact.badge}
     </span>
-    <h2 class="mt-3 text-3xl font-bold tracking-tight text-paper sm:text-4xl">{t.contact.title}</h2>
+    <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">{t.contact.title}</h2>
     <p class="mt-4 text-muted">{t.contact.subtitle}</p>
 
     {
       scheduleHref && (
         <p class="mt-4 text-sm text-muted">
           {t.contact.scheduleNote}{' '}
-          <a href={scheduleHref} class="font-medium text-paper underline underline-offset-4">
+          <a href={scheduleHref} class="font-medium text-ink underline underline-offset-4">
             {t.contact.scheduleCta}
           </a>
         </p>
@@ -32,34 +32,34 @@ const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL;
   -->
   <form class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
     <div class="flex flex-col gap-2">
-      <label for="name" class="text-sm font-medium text-paper">{t.contact.fields.name}</label>
+      <label for="name" class="text-sm font-medium text-ink">{t.contact.fields.name}</label>
       <input
         id="name"
         name="name"
         type="text"
         required
-        class="rounded-md border border-white/15 bg-white/[0.02] px-4 py-3 text-sm text-paper placeholder:text-muted/60 focus:border-white/30 focus:outline-none"
+        class="rounded-md border border-black/15 bg-black/[0.02] px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:border-black/30 focus:outline-none"
       />
     </div>
 
     <div class="flex flex-col gap-2">
-      <label for="email" class="text-sm font-medium text-paper">{t.contact.fields.email}</label>
+      <label for="email" class="text-sm font-medium text-ink">{t.contact.fields.email}</label>
       <input
         id="email"
         name="email"
         type="email"
         required
-        class="rounded-md border border-white/15 bg-white/[0.02] px-4 py-3 text-sm text-paper placeholder:text-muted/60 focus:border-white/30 focus:outline-none"
+        class="rounded-md border border-black/15 bg-black/[0.02] px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:border-black/30 focus:outline-none"
       />
     </div>
 
     <div class="flex flex-col gap-2 sm:col-span-2">
-      <label for="role" class="text-sm font-medium text-paper">{t.contact.fields.role}</label>
+      <label for="role" class="text-sm font-medium text-ink">{t.contact.fields.role}</label>
       <select
         id="role"
         name="role"
         required
-        class="rounded-md border border-white/15 bg-white/[0.02] px-4 py-3 text-sm text-paper focus:border-white/30 focus:outline-none"
+        class="rounded-md border border-black/15 bg-black/[0.02] px-4 py-3 text-sm text-ink focus:border-black/30 focus:outline-none"
       >
         <option value="" selected disabled>{t.contact.fields.rolePlaceholder}</option>
         {t.contact.fields.roleOptions.map((role) => <option value={role}>{role}</option>)}
@@ -67,19 +67,19 @@ const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL;
     </div>
 
     <div class="flex flex-col gap-2 sm:col-span-2">
-      <label for="message" class="text-sm font-medium text-paper">{t.contact.fields.message}</label>
+      <label for="message" class="text-sm font-medium text-ink">{t.contact.fields.message}</label>
       <textarea
         id="message"
         name="message"
         rows="5"
         required
-        class="resize-none rounded-md border border-white/15 bg-white/[0.02] px-4 py-3 text-sm text-paper placeholder:text-muted/60 focus:border-white/30 focus:outline-none"
+        class="resize-none rounded-md border border-black/15 bg-black/[0.02] px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:border-black/30 focus:outline-none"
       ></textarea>
     </div>
 
     <button
       type="submit"
-      class="rounded-md bg-paper px-6 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90 sm:col-span-2"
+      class="rounded-md bg-ink px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 sm:col-span-2"
     >
       {t.contact.submit}
     </button>

@@ -7,15 +7,15 @@ const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
-<footer id="about" class="border-t border-white/10">
+<footer id="about" class="border-t border-black/10">
   <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
     <p>&copy; {year} neto.studio</p>
     <p class="text-center">{t.footer.tagline}</p>
     <div class="flex items-center gap-5">
-      <a href={getRelativeLocaleUrl(lang, 'privacy')} class="transition-colors hover:text-paper">
+      <a href={getRelativeLocaleUrl(lang, 'privacy')} class="transition-colors hover:text-ink">
         {t.footer.privacy}
       </a>
-      <a href={getRelativeLocaleUrl(lang, 'terms')} class="transition-colors hover:text-paper">
+      <a href={getRelativeLocaleUrl(lang, 'terms')} class="transition-colors hover:text-ink">
         {t.footer.terms}
       </a>
     </div>

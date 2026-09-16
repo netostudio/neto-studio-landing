@@ -7,21 +7,23 @@ const t = useTranslations(lang);
 const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL || '/#contact';
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-black/10 bg-paper/80 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/#" class="text-lg font-bold tracking-tight text-paper">neto.studio</a>
+    <a href="/#" class="flex items-center">
+      <img src="/neto-logo.svg" alt="neto.studio" class="h-7 w-auto" />
+    </a>
 
     <nav class="hidden items-center gap-8 text-sm text-muted md:flex">
-      <a href="/#services" class="transition-colors hover:text-paper">{t.nav.services}</a>
-      <a href="/#audit-preview" class="transition-colors hover:text-paper">{t.nav.methodology}</a>
-      <a href="/#about" class="transition-colors hover:text-paper">{t.nav.about}</a>
+      <a href="/#services" class="transition-colors hover:text-ink">{t.nav.services}</a>
+      <a href="/#audit-preview" class="transition-colors hover:text-ink">{t.nav.methodology}</a>
+      <a href="/#about" class="transition-colors hover:text-ink">{t.nav.about}</a>
     </nav>
 
     <div class="flex items-center gap-5">
       <LanguagePicker />
       <a
         href={scheduleHref}
-        class="hidden rounded-md border border-white/15 px-4 py-2 text-sm font-medium text-paper transition-colors hover:border-white/30 hover:bg-white/5 sm:inline-block"
+        class="hidden rounded-md border border-black/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-black/30 hover:bg-black/5 sm:inline-block"
       >
         {t.nav.scheduleCta}
       </a>

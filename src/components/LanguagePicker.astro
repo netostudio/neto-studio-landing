@@ -15,7 +15,7 @@ const locales = Object.keys(languages) as (keyof typeof languages)[];
           href={getLocalizedPath(Astro.url, locale)}
           class:list={[
             'px-1.5 py-1 transition-colors',
-            locale === lang ? 'text-paper' : 'text-muted hover:text-paper',
+            locale === lang ? 'text-ink' : 'text-muted hover:text-ink',
           ]}
           aria-current={locale === lang ? 'true' : undefined}
         >

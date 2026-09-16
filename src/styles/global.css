@@ -7,6 +7,6 @@
   }
 
   body {
-    @apply bg-ink text-paper font-sans antialiased;
+    @apply bg-paper text-ink font-sans antialiased;
   }
 }

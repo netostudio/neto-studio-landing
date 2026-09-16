@@ -6,11 +6,11 @@ export default {
       colors: {
         ink: '#09090b',
         paper: '#f4f4f5',
-        muted: '#a1a1aa',
+        muted: '#52525b',
         crimson: {
-          DEFAULT: '#dc2626',
-          600: '#dc2626',
-          700: '#b91c1c',
+          DEFAULT: '#ff3131',
+          600: '#ff3131',
+          700: '#d81f1f',
         },
       },
       fontFamily: {
