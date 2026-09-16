@@ -2,9 +2,9 @@ import type { Dictionary } from './types';
 
 export const es: Dictionary = {
   meta: {
-    title: 'neto.studio | Asesoría Técnica y CTO Fraccional para Empresas en Crecimiento',
+    title: 'neto.studio | Liderazgo Tecnológico y Rescate de Producto para Empresas',
     description:
-      'Auditamos, saneamos y direccionamos la arquitectura de tu plataforma software para que escales sin bugs, riesgos de seguridad ni sorpresas de infraestructura.',
+      'CTO fraccional con capacidad real de ejecución. Auditamos, saneamos y dirigimos tu tecnología, sin informes que nadie ejecuta ni fábricas de código sin rumbo.',
   },
   nav: {
     services: 'Servicios',
@@ -13,81 +13,99 @@ export const es: Dictionary = {
     scheduleCta: 'Agendar Diagnóstico',
   },
   hero: {
-    badge: 'Asesoría Técnica y CTO Fraccional',
-    title: 'Claridad, estabilidad y gobernanza tecnológica para empresas en crecimiento.',
+    badge: 'Liderazgo Tecnológico + Ejecución Integrada',
+    title: 'Dirección tecnológica de nivel C-Suite. Con las manos en el código.',
     subtitle:
-      'Auditamos, saneamos y direccionamos la arquitectura de tu plataforma software para que escales sin bugs, riesgos de seguridad ni sorpresas de infraestructura.',
-    ctaPrimary: 'Solicitar Auditoría Técnica',
-    ctaSecondary: 'Ver Entregable de Ejemplo',
+      'Estrategia de ingeniería que se traduce, desde el primer sprint, en código funcional y seguro, sin contratos rígidos.',
+    ctaPrimary: 'Agendar Diagnóstico Técnico',
+    ctaSecondary: 'Ver Ejemplo de Auditoría',
   },
   metrics: [
-    { value: '+100%', label: 'Alineación entre Negocio y Tecnología' },
-    { value: '2 Semanas', label: 'Tiempo medio de Due Diligence Técnica' },
-    { value: 'Cero', label: 'Deuda técnica ciega' },
+    { value: '+100%', label: 'Alineación entre negocio y tecnología' },
+    { value: '2 semanas', label: 'Auditoría y hoja de ruta a 90 días' },
+    { value: '0€', label: 'Equity cedido, nunca' },
   ],
   problem: {
-    title: '¿La tecnología está empujando tu negocio o lo está frenando?',
+    title: 'Ya conoces el problema. Llevas meses conviviendo con él.',
     cards: [
       {
-        title: 'Bugs recurrentes y despliegues inestables',
+        title: 'El consultor que solo entrega PDFs',
         description:
-          'Falta de testing automatizado, pipelines de CI/CD abandonados y miedo a desplegar a producción.',
+          'Diagnósticos brillantes, recomendaciones de arquitectura impecables... y ni una línea de código tocada. El informe se archiva y el bug sigue en producción.',
       },
       {
-        title: 'Desalineación entre C-Level e Ingeniería',
+        title: 'Agencias externas sin control ni auditoría',
         description:
-          'Frustración por plazos poco claros y dificultad para traducir problemas técnicos en métricas de negocio.',
+          'Facturas por horas que no cuadran con el avance real. Nadie audita el código que entregan ni sabe si la deuda técnica está creciendo.',
       },
       {
-        title: 'Riesgos de seguridad ocultos',
-        description: 'API keys expuestas, control de accesos débil y dependencias obsoletas.',
+        title: 'MVPs que no aguantan usuarios reales',
+        description:
+          'Producto montado rápido, muchas veces con IA / vibe coding, que se cae en cuanto entra tráfico de verdad, justo cuando más importa que funcione.',
       },
       {
-        title: 'Transición o salida del CTO',
+        title: 'El coste y la rigidez de un CTO full-time',
         description:
-          'Incertidumbre durante transiciones de liderazgo técnico o necesidad de dirección antes de contratar un CTO a tiempo completo.',
+          '80.000€-150.000€ al año más equity, meses de proceso de contratación, y el riesgo de acertar o no con el perfil. Para muchas empresas, sencillamente no compensa todavía.',
       },
     ],
   },
   catalog: {
-    title: 'Soluciones diseñadas para proteger y escalar tu activo digital.',
+    title: 'Un modelo diseñado para el hueco entre el consultor y la fábrica de software.',
     audit: {
       slug: 'neto / audit',
-      name: 'Estabilidad y Due Diligence Técnica',
+      name: 'Auditoría Técnica & Rescue Plan',
       description:
-        'Un análisis exhaustivo de dos semanas sobre arquitectura, código, infraestructura cloud y procesos de ingeniería.',
+        '1-2 semanas de revisión exhaustiva de código, infraestructura y seguridad, con hoja de ruta a 90 días y precio cerrado desde el primer día.',
       listLabel: 'Entregables',
       list: [
-        'Informe completo de auditoría técnica',
-        'Resumen ejecutivo con matriz de impacto de riesgos (Crítico C1-C4, Alto A1-A6)',
-        'Roadmap priorizado a 90 días',
+        'Auditoría de código, arquitectura e infraestructura',
+        'Auditoría de seguridad y dependencias',
+        'Matriz de riesgos priorizada (Crítico / Alto / Medio)',
+        'Hoja de ruta a 90 días con acciones concretas',
       ],
-      price: 'Desde 2.500€ / $2.800 + IVA',
-      priceNote: 'Pago único',
+      price: 'Desde 1.800€ + IVA',
+      priceNote: 'Precio cerrado, pago único',
       cta: 'Encargar Auditoría',
     },
-    cto: {
-      slug: 'neto / cto',
-      name: 'CTO Fraccional y Liderazgo Tecnológico',
+    retainer: {
+      slug: 'neto / lead',
+      name: 'Tech Lead / CTO Fraccional as a Service',
       description:
-        'Integración estratégica en tu equipo directivo (10-12h/semana) para ejecutar el roadmap tecnológico y gobernar la ingeniería.',
+        'Dirección técnica continua con criterio C-Suite y capacidad real de ejecución, integrada en tu equipo, sin contrato anual.',
       listLabel: 'Incluye',
       list: [
-        'Diseño de arquitectura escalable',
-        'Cultura de ingeniería',
-        'Contratación y onboarding técnico',
-        'Optimización de costes cloud (FinOps)',
+        'Arquitectura y estrategia técnica',
+        'Liderazgo de sprints y del equipo de ingeniería',
+        'Intervención directa en el código cuando hace falta',
+        'Representación técnica ante inversores / due diligence',
       ],
-      price: 'Desde 3.500€ / $3.800 /mes + IVA',
-      priceNote: 'Cuota mensual',
-      cta: 'Reservar Plazo de CTO',
+      price: 'Desde 3.000€/mes + IVA',
+      priceNote: 'Suscripción mensual, 30 días de preaviso',
+      cta: 'Reservar Plazo',
+    },
+    sprints: {
+      slug: 'neto / rescue',
+      name: 'Rescue Sprints',
+      description:
+        'Proyectos cerrados de 4 a 8 semanas para sanear deuda técnica crítica o estabilizar un producto que no aguanta la presión.',
+      listLabel: 'Ideal para',
+      list: [
+        'Estabilizar un MVP construido con IA / vibe coding',
+        'Sanear código heredado de una agencia externa',
+        'Preparar la infraestructura antes de una ronda de inversión',
+        'Resolver deuda técnica crítica antes de que escale el problema',
+      ],
+      price: 'Presupuesto cerrado tras diagnóstico',
+      priceNote: 'Proyecto de 4-8 semanas',
+      cta: 'Solicitar Presupuesto',
     },
   },
   auditPreview: {
-    badge: 'Entregable de Ejemplo',
-    title: 'Una vista previa de tu Informe de Auditoría Técnica.',
+    badge: 'Ejemplo de Entregable',
+    title: 'Así es el informe de tu Auditoría Técnica.',
     subtitle:
-      'Cada auditoría termina con un desglose priorizado y legible para negocio del riesgo, con una ruta clara de resolución.',
+      'Cada auditoría termina en una hoja de ruta priorizada y legible para negocio, no en un PDF que nadie vuelve a abrir.',
     riskMatrixTitle: 'Matriz de Impacto de Riesgos',
     riskMatrixActionLabel: 'Acción',
     risks: [
@@ -109,14 +127,34 @@ export const es: Dictionary = {
     ],
     roadmapTitle: 'Roadmap a 90 días',
     roadmap: [
-      { period: 'Mes 1', label: 'Saneamiento' },
-      { period: 'Meses 2-3', label: 'Estabilización y Escalado' },
+      { period: 'Mes 1', label: 'Saneamiento crítico' },
+      { period: 'Meses 2-3', label: 'Estabilización y control de la deuda técnica' },
+    ],
+  },
+  guarantees: {
+    title: 'Trabajamos con reglas claras, no con letra pequeña.',
+    items: [
+      {
+        title: 'Precios transparentes y cerrados',
+        description:
+          'Nada de tarifas por hora que no sabes en qué se convierten a fin de mes. Sabes lo que pagas desde el primer día.',
+      },
+      {
+        title: 'Sin permanencia ni equity',
+        description:
+          'Preaviso de 30 días, sin contratos anuales ni cesión de participaciones. Nos quedamos porque aportamos, no porque estés atrapado.',
+      },
+      {
+        title: 'Tu código es tuyo desde el día 1',
+        description:
+          'Propiedad intelectual 100% transferida desde el inicio del proyecto. Y cuando tu equipo interno esté listo, diseñamos el plan de salida para que asuma el control sin fricción.',
+      },
     ],
   },
   contact: {
     badge: 'Contacto',
-    title: 'Hablemos de tu arquitectura.',
-    subtitle: 'Agenda una llamada de diagnóstico o envíanos los detalles de tu proyecto.',
+    title: 'Hablemos.',
+    subtitle: 'Agenda una llamada de diagnóstico técnico o cuéntanos qué necesitas resolver.',
     fields: {
       name: 'Nombre',
       email: 'Email corporativo',
@@ -130,7 +168,7 @@ export const es: Dictionary = {
     scheduleCta: 'Agendar Diagnóstico',
   },
   footer: {
-    tagline: 'Ingeniería de software con rigor y transparencia.',
+    tagline: 'Dirección técnica y ejecución de ingeniería, sin letra pequeña.',
     privacy: 'Privacidad',
     terms: 'Términos',
   },

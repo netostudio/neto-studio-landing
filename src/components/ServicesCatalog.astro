@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL || '#contact';
 
-const services = [t.catalog.audit, t.catalog.cto];
+const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
 ---
 
 <section id="services" class="mx-auto max-w-6xl px-6 py-24">
@@ -14,7 +14,7 @@ const services = [t.catalog.audit, t.catalog.cto];
     {t.catalog.title}
   </h2>
 
-  <div class="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
+  <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
     {
       services.map((service) => (
         <div class="flex flex-col rounded-xl border border-black/10 bg-black/[0.02] p-8">

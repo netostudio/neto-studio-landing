@@ -25,7 +25,17 @@ export const en: {
       priceNote: string;
       cta: string;
     };
-    cto: {
+    retainer: {
+      slug: string;
+      name: string;
+      description: string;
+      listLabel: string;
+      list: string[];
+      price: string;
+      priceNote: string;
+      cta: string;
+    };
+    sprints: {
       slug: string;
       name: string;
       description: string;
@@ -45,6 +55,10 @@ export const en: {
     risks: { level: 'CRITICAL' | 'HIGH' | 'MEDIUM'; finding: string; action: string }[];
     roadmapTitle: string;
     roadmap: { period: string; label: string }[];
+  };
+  guarantees: {
+    title: string;
+    items: { title: string; description: string }[];
   };
   contact: {
     badge: string;
@@ -78,9 +92,9 @@ export const en: {
   };
 } = {
   meta: {
-    title: 'neto.studio | Technical Advisory & Fractional CTO for High-Growth Companies',
+    title: 'neto.studio | Technical Leadership and Product Rescue for Growing Companies',
     description:
-      'We audit, stabilize, and direct your software architecture so you can scale without bugs, security flaws, or infrastructure surprises.',
+      'Fractional CTO with real execution capacity. We audit, fix, and direct your technology, no reports that go nowhere and no code factories without direction.',
   },
   nav: {
     services: 'Services',
@@ -89,81 +103,99 @@ export const en: {
     scheduleCta: 'Schedule Diagnostic',
   },
   hero: {
-    badge: 'Technical Advisory & Fractional CTO',
-    title: 'Clarity, stability, and tech governance for high-growth companies.',
+    badge: 'Technical Leadership + Integrated Execution',
+    title: 'C-suite technical direction. With hands in the code.',
     subtitle:
-      'We audit, stabilize, and direct your software architecture so you can scale without bugs, security flaws, or infrastructure surprises.',
-    ctaPrimary: 'Request Technical Audit',
-    ctaSecondary: 'View Sample Deliverables',
+      'Engineering strategy that turns into working, secure code from the first sprint, with no rigid contracts.',
+    ctaPrimary: 'Book a Technical Diagnostic',
+    ctaSecondary: 'See a Sample Audit',
   },
   metrics: [
-    { value: '+100%', label: 'Business & Tech Alignment' },
-    { value: '2 Weeks', label: 'Technical Due Diligence' },
-    { value: 'Zero', label: 'Unseen Technical Debt' },
+    { value: '+100%', label: 'Business and tech alignment' },
+    { value: '2 weeks', label: 'Audit and 90-day roadmap' },
+    { value: '€0', label: 'Equity given up, ever' },
   ],
   problem: {
-    title: 'Is technology driving your business forward, or holding it back?',
+    title: 'You already know the problem. You have been living with it for months.',
     cards: [
       {
-        title: 'Recurring Bugs & Unstable Deployments',
+        title: 'The consultant who only delivers PDFs',
         description:
-          'Lack of automated testing, abandoned CI/CD pipelines, and fear of deploying to production.',
+          'Brilliant diagnostics, flawless architecture recommendations, and not a single line of code touched. The report gets filed away and the bug stays in production.',
       },
       {
-        title: 'C-Level vs. Engineering Misalignment',
+        title: 'External agencies with no oversight',
         description:
-          'Frustration over unclear deadlines and difficulty translating technical issues into business metrics.',
+          'Hourly invoices that do not match real progress. Nobody audits the code they ship or knows whether technical debt is quietly growing.',
       },
       {
-        title: 'Hidden Security Risks',
-        description: 'Exposed API keys, weak access control, and obsolete dependencies.',
+        title: 'MVPs that cannot handle real users',
+        description:
+          'A product built fast, often with AI / vibe coding, that breaks the moment real traffic hits, right when it matters most.',
       },
       {
-        title: 'CTO Transition or Departure',
+        title: 'The cost and rigidity of a full-time CTO',
         description:
-          'Uncertainty during C-level tech transitions or the need for leadership before hiring a full-time CTO.',
+          'EUR 80k-150k a year plus equity, months of hiring, and the risk of getting the fit wrong. For many companies, it simply does not pay off yet.',
       },
     ],
   },
   catalog: {
-    title: 'Solutions engineered to protect and scale your digital assets.',
+    title: 'A model built for the gap between the consultant and the software factory.',
     audit: {
       slug: 'neto / audit',
-      name: 'Stability & Technical Due Diligence',
+      name: 'Technical Audit & Rescue Plan',
       description:
-        'A 2-week deep-dive analysis into architecture, codebase, cloud infrastructure, and engineering processes.',
+        '1-2 weeks of deep review across code, infrastructure, and security, with a 90-day roadmap and a fixed price from day one.',
       listLabel: 'Deliverables',
       list: [
-        'Full technical audit report',
-        'Executive summary with risk impact matrix (Critical C1-C4, High A1-A6)',
-        'A 90-day prioritized roadmap',
+        'Code, architecture, and infrastructure audit',
+        'Security and dependency review',
+        'Prioritized risk matrix (Critical / High / Medium)',
+        '90-day roadmap with concrete actions',
       ],
-      price: 'From €2,500 / $2,800 + VAT',
-      priceNote: 'One-time',
+      price: 'From €1,800 + VAT',
+      priceNote: 'Fixed price, one-time',
       cta: 'Order Audit',
     },
-    cto: {
-      slug: 'neto / cto',
-      name: 'Fractional CTO & Tech Leadership',
+    retainer: {
+      slug: 'neto / lead',
+      name: 'Fractional CTO / Tech Lead as a Service',
       description:
-        'Strategic integration into your leadership team (10-12h/week) to execute the tech roadmap and govern engineering.',
+        'Ongoing technical direction with C-suite judgment and real execution capacity, embedded in your team, with no annual contract.',
       listLabel: 'Includes',
       list: [
-        'Scalable architecture design',
-        'Engineering culture',
-        'Tech hiring & onboarding',
-        'Cloud cost optimization (FinOps)',
+        'Architecture and technical strategy',
+        'Sprint and engineering team leadership',
+        'Hands-on code intervention when needed',
+        'Technical representation for investors / due diligence',
       ],
-      price: 'From €3,500 / $3,800 / mo + VAT',
-      priceNote: 'Monthly Retainer',
-      cta: 'Reserve CTO Capacity',
+      price: 'From €3,000/mo + VAT',
+      priceNote: 'Monthly subscription, 30-day notice',
+      cta: 'Reserve Capacity',
+    },
+    sprints: {
+      slug: 'neto / rescue',
+      name: 'Rescue Sprints',
+      description:
+        'Fixed-scope projects of 4 to 8 weeks to clean up critical technical debt or stabilize a product that cannot take the pressure.',
+      listLabel: 'Best for',
+      list: [
+        'Stabilizing an MVP built with AI / vibe coding',
+        'Cleaning up code inherited from an external agency',
+        'Preparing infrastructure before a funding round',
+        'Fixing critical technical debt before it scales',
+      ],
+      price: 'Fixed quote after diagnostic',
+      priceNote: '4-8 week project',
+      cta: 'Request a Quote',
     },
   },
   auditPreview: {
     badge: 'Sample Deliverable',
-    title: 'A preview of your Technical Audit Report.',
+    title: 'This is what your Technical Audit report looks like.',
     subtitle:
-      'Every audit ends with a prioritized, business-readable breakdown of risk and a clear path to resolution.',
+      'Every audit ends in a prioritized, business-readable roadmap, not a PDF nobody opens again.',
     riskMatrixTitle: 'Risk Impact Matrix',
     riskMatrixActionLabel: 'Action',
     risks: [
@@ -185,14 +217,34 @@ export const en: {
     ],
     roadmapTitle: '90-Day Roadmap',
     roadmap: [
-      { period: 'Month 1', label: 'Sanitization' },
-      { period: 'Months 2-3', label: 'Stabilization & Scaling' },
+      { period: 'Month 1', label: 'Critical sanitization' },
+      { period: 'Months 2-3', label: 'Stabilization and debt control' },
+    ],
+  },
+  guarantees: {
+    title: 'We work with clear rules, not fine print.',
+    items: [
+      {
+        title: 'Transparent, fixed pricing',
+        description:
+          'No hourly rates that turn into a surprise at the end of the month. You know what you pay from day one.',
+      },
+      {
+        title: 'No lock-in, no equity',
+        description:
+          '30-day notice, no annual contracts, no equity given up. We stay because we add value, not because you are stuck.',
+      },
+      {
+        title: 'Your code is yours from day one',
+        description:
+          '100% IP transferred from the start of the engagement. And when your in-house team is ready, we design the offboarding plan so they take over without friction.',
+      },
     ],
   },
   contact: {
     badge: 'Get in Touch',
-    title: "Let's talk about your architecture.",
-    subtitle: 'Schedule a diagnostic call or send us the details of your project.',
+    title: "Let's talk.",
+    subtitle: 'Book a technical diagnostic call or tell us what you need to solve.',
     fields: {
       name: 'Name',
       email: 'Corporate Email',
@@ -206,7 +258,7 @@ export const en: {
     scheduleCta: 'Schedule Diagnostic',
   },
   footer: {
-    tagline: 'Building software engineering with rigor and transparency.',
+    tagline: 'Technical direction and engineering execution, no fine print.',
     privacy: 'Privacy',
     terms: 'Terms',
   },
