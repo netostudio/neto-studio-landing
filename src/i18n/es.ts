@@ -128,7 +128,8 @@ export const es: Dictionary = {
     roadmapTitle: 'Roadmap a 90 días',
     roadmap: [
       { period: 'Mes 1', label: 'Saneamiento crítico' },
-      { period: 'Meses 2-3', label: 'Estabilización y control de la deuda técnica' },
+      { period: 'Mes 2', label: 'Control de la deuda técnica' },
+      { period: 'Mes 3', label: 'Velocidad en la entrega y próximos pasos' },
     ],
   },
   guarantees: {

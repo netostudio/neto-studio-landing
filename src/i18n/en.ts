@@ -218,7 +218,8 @@ export const en: {
     roadmapTitle: '90-Day Roadmap',
     roadmap: [
       { period: 'Month 1', label: 'Critical sanitization' },
-      { period: 'Months 2-3', label: 'Stabilization and debt control' },
+      { period: 'Month 2', label: 'Stabilization and debt control' },
+      { period: 'Month 3', label: 'Speed in delivery and next steps' },
     ],
   },
   guarantees: {
