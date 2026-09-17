@@ -167,7 +167,7 @@ export const en: {
       list: [
         'Architecture and technical strategy',
         'Sprint and engineering team leadership',
-        'Hands-on code intervention when needed',
+        'Hands-on code intervention when needed (on an ad hoc basis)',
         'Technical representation for investors / due diligence',
       ],
       price: 'From €3,000/mo + VAT',

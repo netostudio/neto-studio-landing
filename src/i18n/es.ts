@@ -70,14 +70,14 @@ export const es: Dictionary = {
     },
     retainer: {
       slug: 'neto / lead',
-      name: 'Tech Lead / CTO Fraccional as a Service',
+      name: 'Fractional CTO / Tech Lead as a Service',
       description:
         'Dirección técnica continua con criterio C-Suite y capacidad real de ejecución, integrada en tu equipo, sin contrato anual.',
       listLabel: 'Incluye',
       list: [
         'Arquitectura y estrategia técnica',
         'Liderazgo de sprints y del equipo de ingeniería',
-        'Intervención directa en el código cuando hace falta',
+        'Intervención directa en el código cuando hace falta (puntual)',
         'Representación técnica ante inversores / due diligence',
       ],
       price: 'Desde 3.000€/mes + IVA',
