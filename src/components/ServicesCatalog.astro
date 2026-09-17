@@ -25,7 +25,7 @@ const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
           <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
             {service.listLabel}
           </p>
-          <ul class="mt-3 space-y-2.5">
+          <ul class="mt-3 flex-1 space-y-2.5">
             {service.list.map((item) => (
               <li class="flex items-start gap-2.5 text-sm text-ink/90">
                 <Check class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" stroke-width={2} />
@@ -34,7 +34,7 @@ const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
             ))}
           </ul>
 
-          <div class="mt-8 border-t border-black/10 pt-6">
+          <div class="mt-6 border-t border-black/10 pt-6">
             <p class="text-lg font-semibold text-ink">{service.price}</p>
             <p class="text-xs text-muted">{service.priceNote}</p>
             <a

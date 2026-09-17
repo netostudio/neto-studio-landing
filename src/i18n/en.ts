@@ -146,7 +146,7 @@ export const en: {
       slug: 'neto / audit',
       name: 'Technical Audit & Rescue Plan',
       description:
-        '1-2 weeks of deep review across code, infrastructure, and security, with a 90-day roadmap and a fixed price from day one.',
+        '1-2 weeks of deep review across code, infrastructure, team and security, with a clear 90-day roadmap and a fixed price from day one.',
       listLabel: 'Deliverables',
       list: [
         'Code, architecture, and infrastructure audit',
