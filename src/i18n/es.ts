@@ -13,7 +13,6 @@ export const es: Dictionary = {
     scheduleCta: 'Agendar Diagnóstico',
   },
   hero: {
-    badge: 'Liderazgo Tecnológico + Ejecución Integrada',
     title: 'Dirección tecnológica de nivel C-Suite. Con las manos en el código.',
     subtitle:
       'Estrategia de ingeniería que se traduce, desde el primer sprint, en código funcional y seguro, sin contratos rígidos.',
