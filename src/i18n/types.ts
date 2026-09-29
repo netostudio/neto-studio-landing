@@ -51,7 +51,7 @@ export type Dictionary = {
     subtitle: string;
     riskMatrixTitle: string;
     riskMatrixActionLabel: string;
-    risks: { level: 'CRITICAL' | 'HIGH' | 'MEDIUM'; finding: string; action: string }[];
+    risks: { level: 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW'; finding: string; action: string }[];
     roadmapTitle: string;
     roadmap: { period: string; label: string }[];
   };

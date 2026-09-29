@@ -123,6 +123,11 @@ export const es: Dictionary = {
         finding: 'Migraciones de base de datos sin versionar o librerías de terceros sin gestionar',
         action: 'Versionado de migraciones y auditoría de dependencias.',
       },
+      {
+        level: 'LOW',
+        finding: 'Documentación técnica inexistente o desactualizada',
+        action: 'Documentación de arquitectura y guía de puesta en marcha.',
+      },
     ],
     roadmapTitle: 'Roadmap a 90 días',
     roadmap: [

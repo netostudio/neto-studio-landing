@@ -123,6 +123,11 @@ export const en: Dictionary = {
         finding: 'Unversioned database migrations or unmanaged third-party libraries',
         action: 'Migration versioning and dependency audit.',
       },
+      {
+        level: 'LOW',
+        finding: 'Missing or outdated technical documentation',
+        action: 'Architecture docs and setup guide.',
+      },
     ],
     roadmapTitle: '90-Day Roadmap',
     roadmap: [
