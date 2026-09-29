@@ -69,7 +69,7 @@ export const en: Dictionary = {
     },
     retainer: {
       slug: 'neto / lead',
-      name: 'Fractional CTO / Tech Lead as a Service',
+      name: 'Fractional CTO / Tech Lead',
       description:
         'Ongoing technical direction with C-suite judgment and real execution capacity, embedded in your team, with no annual contract.',
       listLabel: 'Includes',
