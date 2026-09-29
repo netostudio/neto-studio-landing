@@ -13,7 +13,7 @@ export const es: Dictionary = {
     scheduleCta: 'Agendar Diagnóstico',
   },
   hero: {
-    title: 'Dirigimos tu tecnología. Tú enfócate en tu negocio.',
+    title: ['Dirigimos tu tecnología.', 'Tú enfócate en tu negocio.'],
     subtitle:
       'Estrategia de nivel CTO y la ingeniería para llevarla a cabo. Sin contratos rígidos.',
     ctaPrimary: 'Agendar Diagnóstico Técnico',

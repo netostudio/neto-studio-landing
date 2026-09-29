@@ -13,7 +13,7 @@ export const en: Dictionary = {
     scheduleCta: 'Schedule Diagnostic',
   },
   hero: {
-    title: 'We lead your technology. You focus on your business.',
+    title: ['We lead your technology.', 'You focus on your business.'],
     subtitle:
       'CTO-level strategy and the engineering to deliver it. No rigid contracts.',
     ctaPrimary: 'Book a Technical Diagnostic',
