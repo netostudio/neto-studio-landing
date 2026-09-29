@@ -13,16 +13,16 @@ export const es: Dictionary = {
     scheduleCta: 'Agendar Diagnóstico',
   },
   hero: {
-    title: 'Dirección tecnológica de nivel C-Suite. Con las manos en el código.',
+    title: 'Dirigimos tu tecnología. Tú enfócate en tu negocio.',
     subtitle:
-      'Estrategia de ingeniería que se traduce, desde el primer sprint, en código funcional y seguro, sin contratos rígidos.',
+      'Estrategia de nivel CTO y la ingeniería para llevarla a cabo. Sin contratos rígidos.',
     ctaPrimary: 'Agendar Diagnóstico Técnico',
     ctaSecondary: 'Ver Ejemplo de Auditoría',
   },
   metrics: [
-    { value: '+100%', label: 'Alineación entre negocio y tecnología' },
     { value: '2 semanas', label: 'Auditoría y hoja de ruta a 90 días' },
-    { value: '0€', label: 'Equity cedido, nunca' },
+    { value: 'Precios claros', label: 'Tarifa pactada de antemano, sin sorpresas' },
+    { value: '30 días', label: 'De preaviso, sin permanencia' },
   ],
   problem: {
     title: 'Ya conoces el problema. Llevas meses conviviendo con él.',
@@ -90,12 +90,12 @@ export const es: Dictionary = {
         'Proyectos cerrados de 4 a 8 semanas para sanear deuda técnica crítica o estabilizar un producto que no aguanta la presión.',
       listLabel: 'Ideal para',
       list: [
-        'Estabilizar un MVP construido con IA / vibe coding',
         'Sanear código heredado de una agencia externa',
         'Preparar la infraestructura antes de una ronda de inversión',
         'Resolver deuda técnica crítica antes de que escale el problema',
+        'Estabilizar un MVP construido con IA / vibe coding',
       ],
-      price: 'Presupuesto cerrado tras diagnóstico',
+      price: 'Precio cerrado tras diagnóstico',
       priceNote: 'Proyecto de 4-8 semanas',
       cta: 'Solicitar Presupuesto',
     },
@@ -140,9 +140,9 @@ export const es: Dictionary = {
           'Nada de tarifas por hora que no sabes en qué se convierten a fin de mes. Sabes lo que pagas desde el primer día.',
       },
       {
-        title: 'Sin permanencia ni equity',
+        title: 'Sin permanencia',
         description:
-          'Preaviso de 30 días, sin contratos anuales ni cesión de participaciones. Nos quedamos porque aportamos, no porque estés atrapado.',
+          'Preaviso de 30 días, sin contratos anuales ni dependencias ocultas. Nos quedamos porque aportamos, no porque estés atrapado.',
       },
       {
         title: 'Tu código es tuyo desde el día 1',

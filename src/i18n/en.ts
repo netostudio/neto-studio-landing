@@ -13,16 +13,16 @@ export const en: Dictionary = {
     scheduleCta: 'Schedule Diagnostic',
   },
   hero: {
-    title: 'C-suite technical direction. With hands in the code.',
+    title: 'We lead your technology. You focus on your business.',
     subtitle:
-      'Engineering strategy that turns into working, secure code from the first sprint, with no rigid contracts.',
+      'CTO-level strategy and the engineering to deliver it. No rigid contracts.',
     ctaPrimary: 'Book a Technical Diagnostic',
     ctaSecondary: 'See a Sample Audit',
   },
   metrics: [
-    { value: '+100%', label: 'Business and tech alignment' },
     { value: '2 weeks', label: 'Audit and 90-day roadmap' },
-    { value: '€0', label: 'Equity given up, ever' },
+    { value: 'Clear pricing', label: 'Rates agreed upfront, no surprises' },
+    { value: '30 days', label: 'Notice period, no lock-in' },
   ],
   problem: {
     title: 'You already know the problem. You have been living with it for months.',
@@ -90,10 +90,10 @@ export const en: Dictionary = {
         'Fixed-scope projects of 4 to 8 weeks to clean up critical technical debt or stabilize a product that cannot take the pressure.',
       listLabel: 'Best for',
       list: [
-        'Stabilizing an MVP built with AI / vibe coding',
         'Cleaning up code inherited from an external agency',
         'Preparing infrastructure before a funding round',
         'Fixing critical technical debt before it scales',
+        'Stabilizing an MVP built with AI / vibe coding',
       ],
       price: 'Fixed quote after diagnostic',
       priceNote: '4-8 week project',
@@ -140,9 +140,9 @@ export const en: Dictionary = {
           'No hourly rates that turn into a surprise at the end of the month. You know what you pay from day one.',
       },
       {
-        title: 'No lock-in, no equity',
+        title: 'No lock-in',
         description:
-          '30-day notice, no annual contracts, no equity given up. We stay because we add value, not because you are stuck.',
+          '30-day notice, no annual contracts, no obscure dependencies. We stay because we add value, not because you are stuck.',
       },
       {
         title: 'Your code is yours from day one',
