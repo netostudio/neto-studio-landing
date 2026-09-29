@@ -110,21 +110,25 @@ export const en: Dictionary = {
     risks: [
       {
         level: 'CRITICAL',
+        levelLabel: 'Critical',
         finding: 'Active API keys/credentials exposed in git repository',
         action: 'Immediate rotation and env var migration.',
       },
       {
         level: 'HIGH',
+        levelLabel: 'High',
         finding: 'Absence of CI/CD pipeline and outdated test suites',
         action: 'GitHub Actions automation setup.',
       },
       {
         level: 'MEDIUM',
+        levelLabel: 'Medium',
         finding: 'Unversioned database migrations or unmanaged third-party libraries',
         action: 'Migration versioning and dependency audit.',
       },
       {
         level: 'LOW',
+        levelLabel: 'Low',
         finding: 'Missing or outdated technical documentation',
         action: 'Architecture docs and setup guide.',
       },
