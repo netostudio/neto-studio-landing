@@ -4,7 +4,7 @@ export const es: Dictionary = {
   meta: {
     title: 'neto.studio | Liderazgo Tecnológico y Rescate de Producto para Empresas',
     description:
-      'CTO fraccional con capacidad real de ejecución. Auditamos, saneamos y dirigimos tu tecnología, sin informes que nadie ejecuta ni fábricas de código sin rumbo.',
+      'Fractional CTO para PYMEs: dirección técnica a tiempo parcial con capacidad real de ejecución. Auditamos, saneamos y dirigimos tu tecnología, sin informes que nadie ejecuta ni fábricas de código sin rumbo.',
   },
   nav: {
     services: 'Servicios',
@@ -35,17 +35,17 @@ export const es: Dictionary = {
       {
         title: 'Agencias externas sin control ni auditoría',
         description:
-          'Facturas por horas que no cuadran con el avance real. Nadie audita el código que entregan ni sabe si la deuda técnica está creciendo.',
+          'Facturas por horas que no cuadran con el avance real. Nadie revisa el código que entregan ni sabe si los problemas se están acumulando.',
       },
       {
-        title: 'MVPs que no aguantan usuarios reales',
+        title: 'Software que falla cuando más se usa',
         description:
-          'Producto montado rápido, muchas veces con IA / vibe coding, que se cae en cuanto entra tráfico de verdad, justo cuando más importa que funcione.',
+          'Aplicaciones hechas deprisa, a veces generadas con IA sin supervisión técnica, que se caen en cuanto crecen los clientes o los pedidos, justo cuando más importa que funcionen.',
       },
       {
-        title: 'El coste y la rigidez de un CTO full-time',
+        title: 'El coste y la rigidez de un director técnico en plantilla',
         description:
-          '80.000€-150.000€ al año más equity, meses de proceso de contratación, y el riesgo de acertar o no con el perfil. Para muchas empresas, sencillamente no compensa todavía.',
+          '80.000€-150.000€ al año de salario, meses de proceso de selección y el riesgo de acertar o no con el perfil. Para la mayoría de PYMEs, sencillamente no compensa.',
       },
     ],
   },
@@ -53,7 +53,7 @@ export const es: Dictionary = {
     title: 'Un modelo diseñado para el hueco entre el consultor y la fábrica de software.',
     audit: {
       slug: 'neto / audit',
-      name: 'Auditoría Técnica & Rescue Plan',
+      name: 'Auditoría Técnica + Plan de Acción',
       description:
         '1-2 semanas de revisión exhaustiva de código, infraestructura y seguridad, con hoja de ruta a 90 días y precio cerrado desde el primer día.',
       listLabel: 'Entregables',
@@ -69,15 +69,15 @@ export const es: Dictionary = {
     },
     retainer: {
       slug: 'neto / lead',
-      name: 'Fractional CTO / Tech Lead',
+      name: 'Fractional CTO',
       description:
-        'Dirección técnica continua con criterio C-Suite y capacidad real de ejecución, integrada en tu equipo, sin contrato anual.',
+        'Dirección técnica continua, con visión de negocio y capacidad real de ejecución, integrada en tu equipo y sin contrato anual.',
       listLabel: 'Incluye',
       list: [
         'Arquitectura y estrategia técnica',
-        'Liderazgo de sprints y del equipo de ingeniería',
+        'Coordinación del equipo técnico y de los proveedores externos',
         'Intervención directa en el código cuando hace falta (puntual)',
-        'Representación técnica ante inversores / due diligence',
+        'Interlocución técnica con clientes, proveedores y socios',
       ],
       price: 'Desde 3.000€/mes + IVA',
       priceNote: 'Suscripción mensual, 30 días de preaviso',
@@ -85,15 +85,15 @@ export const es: Dictionary = {
     },
     sprints: {
       slug: 'neto / rescue',
-      name: 'Rescue Sprints',
+      name: 'Proyectos de Rescate',
       description:
-        'Proyectos cerrados de 4 a 8 semanas para sanear deuda técnica crítica o estabilizar un producto que no aguanta la presión.',
+        'Proyectos cerrados de 4 a 8 semanas para resolver problemas técnicos críticos o estabilizar un sistema que no aguanta la presión.',
       listLabel: 'Ideal para',
       list: [
         'Sanear código heredado de una agencia externa',
-        'Preparar la infraestructura antes de una ronda de inversión',
-        'Resolver deuda técnica crítica antes de que escale el problema',
-        'Estabilizar un MVP construido con IA / vibe coding',
+        'Preparar los sistemas para un crecimiento importante o un gran cliente',
+        'Corregir fallos de fondo antes de que se conviertan en un problema caro',
+        'Estabilizar software desarrollado con IA sin supervisión técnica',
       ],
       price: 'Precio cerrado tras diagnóstico',
       priceNote: 'Proyecto de 4-8 semanas',
@@ -136,7 +136,7 @@ export const es: Dictionary = {
     roadmapTitle: 'Roadmap a 90 días',
     roadmap: [
       { period: 'Mes 1', label: 'Saneamiento crítico' },
-      { period: 'Mes 2', label: 'Control de la deuda técnica' },
+      { period: 'Mes 2', label: 'Estabilización y control de riesgos' },
       { period: 'Mes 3', label: 'Velocidad en la entrega y próximos pasos' },
     ],
   },
@@ -168,7 +168,12 @@ export const es: Dictionary = {
       name: 'Nombre',
       email: 'Email corporativo',
       role: 'Rol',
-      roleOptions: ['CEO', 'Founder', 'Inversor', 'Head of Tech'],
+      roleOptions: [
+        'Gerente / Director General',
+        'Propietario / Socio',
+        'Dirección de Operaciones o Finanzas',
+        'Responsable de IT',
+      ],
       rolePlaceholder: 'Selecciona tu rol',
       message: 'Mensaje / URL de la plataforma',
     },
@@ -214,7 +219,7 @@ export const es: Dictionary = {
       sections: [
         {
           heading: '1. Servicios',
-          body: 'neto.studio presta servicios de asesoría técnica, incluyendo auditorías de Due Diligence Técnica y colaboraciones de CTO Fraccional. El alcance concreto, los entregables y el calendario de cada proyecto se definen en una propuesta o contrato específico acordado con el cliente.',
+          body: 'neto.studio presta servicios de asesoría técnica, incluyendo auditorías técnicas y servicios de dirección técnica a tiempo parcial. El alcance concreto, los entregables y el calendario de cada proyecto se definen en una propuesta o contrato específico acordado con el cliente.',
         },
         {
           heading: '2. Condiciones del servicio',

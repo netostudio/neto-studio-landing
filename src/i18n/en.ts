@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: 'neto.studio | Technical Leadership and Product Rescue for Growing Companies',
     description:
-      'Fractional CTO with real execution capacity. We audit, fix, and direct your technology, no reports that go nowhere and no code factories without direction.',
+      'Fractional CTO for small and mid-sized businesses, with real execution capacity. We audit, fix, and direct your technology, no reports that go nowhere and no code factories without direction.',
   },
   nav: {
     services: 'Services',
@@ -35,17 +35,17 @@ export const en: Dictionary = {
       {
         title: 'External agencies with no oversight',
         description:
-          'Hourly invoices that do not match real progress. Nobody audits the code they ship or knows whether technical debt is quietly growing.',
+          'Hourly invoices that do not match real progress. Nobody reviews the code they deliver or knows whether problems are quietly piling up.',
       },
       {
-        title: 'MVPs that cannot handle real users',
+        title: 'Software that fails when it is needed most',
         description:
-          'A product built fast, often with AI / vibe coding, that breaks the moment real traffic hits, right when it matters most.',
+          'Applications built in a hurry, sometimes generated with AI and no technical oversight, that break as soon as customers or orders grow, right when it matters most.',
       },
       {
-        title: 'The cost and rigidity of a full-time CTO',
+        title: 'The cost and rigidity of an in-house CTO',
         description:
-          'EUR 80k-150k a year plus equity, months of hiring, and the risk of getting the fit wrong. For many companies, it simply does not pay off yet.',
+          'EUR 80k-150k a year in salary, months of hiring, and the risk of getting the fit wrong. For most small and mid-sized businesses, it simply does not pay off.',
       },
     ],
   },
@@ -53,7 +53,7 @@ export const en: Dictionary = {
     title: 'A model built for the gap between the consultant and the software factory.',
     audit: {
       slug: 'neto / audit',
-      name: 'Technical Audit & Rescue Plan',
+      name: 'Technical Audit + Action Plan',
       description:
         '1-2 weeks of deep review across code, infrastructure, team and security, with a clear 90-day roadmap and a fixed price from day one.',
       listLabel: 'Deliverables',
@@ -69,15 +69,15 @@ export const en: Dictionary = {
     },
     retainer: {
       slug: 'neto / lead',
-      name: 'Fractional CTO / Tech Lead',
+      name: 'Fractional CTO',
       description:
-        'Ongoing technical direction with C-suite judgment and real execution capacity, embedded in your team, with no annual contract.',
+        'Ongoing technical direction with business judgment and real execution capacity, embedded in your team, with no annual contract.',
       listLabel: 'Includes',
       list: [
         'Architecture and technical strategy',
-        'Sprint and engineering team leadership',
-        'Hands-on code intervention when needed (on an ad hoc basis)',
-        'Technical representation for investors / due diligence',
+        'Coordination of your technical team and external vendors',
+        'Direct work on the code when needed (on an ad hoc basis)',
+        'Technical point of contact for clients, vendors, and partners',
       ],
       price: 'From €3,000/mo + VAT',
       priceNote: 'Monthly subscription, 30-day notice',
@@ -85,15 +85,15 @@ export const en: Dictionary = {
     },
     sprints: {
       slug: 'neto / rescue',
-      name: 'Rescue Sprints',
+      name: 'Rescue Projects',
       description:
-        'Fixed-scope projects of 4 to 8 weeks to clean up critical technical debt or stabilize a product that cannot take the pressure.',
+        'Fixed-scope projects of 4 to 8 weeks to solve critical technical problems or stabilize a system that cannot take the pressure.',
       listLabel: 'Best for',
       list: [
         'Cleaning up code inherited from an external agency',
-        'Preparing infrastructure before a funding round',
-        'Fixing critical technical debt before it scales',
-        'Stabilizing an MVP built with AI / vibe coding',
+        'Preparing your systems for major growth or a large new client',
+        'Fixing underlying flaws before they become an expensive problem',
+        'Stabilizing software built with AI and no technical oversight',
       ],
       price: 'Fixed quote after diagnostic',
       priceNote: '4-8 week project',
@@ -136,7 +136,7 @@ export const en: Dictionary = {
     roadmapTitle: '90-Day Roadmap',
     roadmap: [
       { period: 'Month 1', label: 'Critical sanitization' },
-      { period: 'Month 2', label: 'Stabilization and debt control' },
+      { period: 'Month 2', label: 'Stabilization and risk control' },
       { period: 'Month 3', label: 'Speed in delivery and next steps' },
     ],
   },
@@ -168,7 +168,12 @@ export const en: Dictionary = {
       name: 'Name',
       email: 'Corporate Email',
       role: 'Role',
-      roleOptions: ['CEO', 'Founder', 'Investor', 'Head of Tech'],
+      roleOptions: [
+        'CEO / Managing Director',
+        'Owner / Partner',
+        'Operations or Finance Director',
+        'IT Manager',
+      ],
       rolePlaceholder: 'Select your role',
       message: 'Message / Platform URL',
     },
@@ -214,7 +219,7 @@ export const en: Dictionary = {
       sections: [
         {
           heading: '1. Services',
-          body: 'neto.studio provides technical advisory services, including Technical Due Diligence audits and Fractional CTO engagements. The specific scope, deliverables, and timeline for each engagement are defined in a separate proposal or contract agreed with the client.',
+          body: 'neto.studio provides technical advisory services, including technical audits and Fractional CTO engagements. The specific scope, deliverables, and timeline for each engagement are defined in a separate proposal or contract agreed with the client.',
         },
         {
           heading: '2. Engagement terms',
