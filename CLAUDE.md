@@ -15,7 +15,7 @@ Guidance for working in this repo (neto.studio landing page). See also README.md
   - translations are not passed via props. Follow this pattern in new components.
 - Almost no component uses typed `Props` (exception: `RiskBadge.astro`, which defines `interface Props`). Only type props if the component actually needs them.
 - Tailwind utility classes only, no scoped `<style>` blocks.
-- `Contact.astro` is a static form with no backend - don't assume it submits anywhere until it's wired up.
+- `Contact.astro` posts (via `fetch`) to `/api/contact`. There is no app backend: in production nginx proxies that path to a Make webhook (`nginx.conf.template`), and in `astro dev` the Vite proxy in `astro.config.mjs` does the same. Make creates the lead in Holded and sends the notification email; that logic lives in the Make scenario, not in this repo.
 
 ## i18n - adding text or pages
 - Source of truth: `src/i18n/en.ts` (defines the `Dictionary` type via an explicit type annotation + values). `src/i18n/es.ts` must satisfy that same type.
@@ -33,6 +33,7 @@ Guidance for working in this repo (neto.studio landing page). See also README.md
 
 ## Environment variables
 - `PUBLIC_CALENDLY_URL`: if empty, scheduling CTAs fall back to scrolling to `#contact` instead of linking to Calendly/Cal.com. Since it's `PUBLIC_*`, Astro inlines it at build time - `Dockerfile.prod` passes it as a `--build-arg` (see Makefile's `build-prod`).
+- `MAKE_WEBHOOK_URL`, `MAKE_WEBHOOK_APIKEY`: runtime secrets for the contact form proxy, never `PUBLIC_*` and never build args. The prod image renders `nginx.conf.template` with `envsubst` at startup (`make run-prod` passes them with `-e`); nginx fails to start if they are missing.
 
 ## Code styling
 - Every comment and variable name must be in English.

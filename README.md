@@ -52,6 +52,21 @@ Copy `.env.example` to `.env` and adjust:
 | Variable               | Description                                                                                                                       |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `PUBLIC_CALENDLY_URL`   | Scheduling URL (Calendly, Cal.com, etc.) for the "Schedule Diagnostic" / "Agendar Diagnóstico" CTAs. If left empty, those CTAs scroll to the contact section instead. |
+| `MAKE_WEBHOOK_URL`      | Make webhook that receives contact form submissions. Runtime secret, see "Contact form" below.                                     |
+| `MAKE_WEBHOOK_APIKEY`   | API key configured on that Make webhook. Runtime secret, see "Contact form" below.                                                  |
+
+## Contact form
+
+The form in `Contact.astro` posts to `/api/contact` on the same domain. The browser never sees the Make webhook URL or its API key:
+
+```
+browser -> POST /api/contact -> nginx (rate limit 3/min per IP, adds x-make-apikey) -> Make webhook
+        -> filter -> Holded "Create a Contact" (type lead) -> notification email (SMTP)
+```
+
+- **Production**: `nginx.conf.template` is rendered by the nginx image at startup with `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY` from the container environment (`make run-prod` passes them from `.env`). If they are missing, nginx does not start.
+- **Development**: `astro dev` proxies `/api/contact` the same way (see `astro.config.mjs`), reading the same variables from `.env`.
+- The Holded and SMTP credentials live only in the Make scenario.
 
 ## Project structure
 
@@ -91,4 +106,4 @@ make build-prod   # docker build -f Dockerfile.prod ...
 make run-prod     # serves the image on http://localhost:8080
 ```
 
-`PUBLIC_CALENDLY_URL` is read from `.env` and baked into the static HTML at build time, since Astro inlines `PUBLIC_*` variables during `astro build`.
+`PUBLIC_CALENDLY_URL` is read from `.env` and baked into the static HTML at build time, since Astro inlines `PUBLIC_*` variables during `astro build`. `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY` are not baked in: pass them with `docker run -e` wherever the image runs.
