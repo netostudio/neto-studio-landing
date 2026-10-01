@@ -1,6 +1,6 @@
 services:
-  # Dev server (astro dev, hot reload). /api/contact is proxied to Make by the
-  # Vite proxy in astro.config.mjs, using MAKE_WEBHOOK_* from .env.
+  # Dev server (astro dev, hot reload) on :4321. /api/contact is proxied to
+  # Make by the Vite proxy in astro.config.mjs, using MAKE_WEBHOOK_* from .env.
   web:
     build:
       context: .
@@ -16,18 +16,18 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-  # Production image (static build served by nginx, which proxies
-  # /api/contact to Make). Only started with `--profile prod` (make up-prod).
-  prod:
-    profiles: ['prod']
+  # The site as it runs on Cloudflare Pages, on :8788: static build served by
+  # wrangler plus the Pages Function behind /api/contact. It builds the
+  # mounted source on start, so `make restart` picks up changes.
+  pages:
     build:
       context: .
-      dockerfile: Dockerfile.prod
-      args:
-        PUBLIC_CALENDLY_URL: ${PUBLIC_CALENDLY_URL:-}
-    image: neto-landing:prod
+      dockerfile: Dockerfile.pages
     ports:
-      - '${PROD_PORT:-8080}:80'
-    environment:
-      MAKE_WEBHOOK_URL: ${MAKE_WEBHOOK_URL:-}
-      MAKE_WEBHOOK_APIKEY: ${MAKE_WEBHOOK_APIKEY:-}
+      - '${PAGES_PORT:-8788}:8788'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - path: .env
+        required: false

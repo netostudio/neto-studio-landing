@@ -1,0 +1,29 @@
+# Local Cloudflare Pages runtime: serves the static build and runs the Pages
+# Functions in functions/ with wrangler, as in production. Debian based
+# because workerd (wrangler's runtime) does not run on alpine/musl.
+FROM node:24-bookworm-slim
+
+# The slim image has no root certificates, which workerd needs for HTTPS
+# requests (the Function calls the Make webhook).
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+ENV WRANGLER_SEND_METRICS=false
+# Must match Settings > Runtime > Compatibility date of the Pages project, so
+# the Function behaves the same locally and in production.
+ENV COMPATIBILITY_DATE=2026-05-01
+
+EXPOSE 8788
+
+# Builds from the mounted source on every start, so `make restart` serves the
+# current code. wrangler reads MAKE_WEBHOOK_* from the mounted .env by itself;
+# never pass them as command line arguments, they would end up in logs. If
+# they are missing the site still runs and /api/contact answers 500.
+# wrangler is exec'd directly (not through npx) so it receives SIGTERM.
+CMD ["sh", "-c", "npm run build && exec ./node_modules/.bin/wrangler pages dev dist --ip 0.0.0.0 --port 8788 --compatibility-date=\"$COMPATIBILITY_DATE\""]
