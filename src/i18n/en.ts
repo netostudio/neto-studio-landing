@@ -2,6 +2,7 @@ import type { Dictionary } from './types';
 
 export const en: Dictionary = {
   meta: {
+    ogImageAlt: 'neto.studio: technical leadership and product rescue for growing companies',
     title: 'neto.studio | Technical Leadership and Product Rescue for Growing Companies',
     description:
       'Fractional CTO for small and mid-sized businesses, with real execution capacity. We audit, fix, and direct your technology, no reports that go nowhere and no code factories without direction.',
@@ -201,6 +202,7 @@ export const en: Dictionary = {
   legal: {
     privacy: {
       title: 'Privacy Policy',
+      description: 'How neto.studio collects, uses and retains the data you submit through this website.',
       lastUpdated: 'Last updated: October 2026',
       sections: [
         {
@@ -223,6 +225,7 @@ export const en: Dictionary = {
     },
     terms: {
       title: 'Terms of Service',
+      description: 'Terms that govern the use of the neto.studio website and its advisory services.',
       lastUpdated: 'Last updated: August 2026',
       sections: [
         {

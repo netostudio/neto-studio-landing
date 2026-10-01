@@ -4,11 +4,34 @@ import '../styles/global.css';
 import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
 import { languages } from '../i18n/ui';
 
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const { title = t.meta.title, description = t.meta.description, noindex = false } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_ES' };
+// Supplied as static files in public/ (1200x630), one per language because
+// the image carries the hero claim.
+const ogImageFile: Record<string, string> = { en: '/og-image.png', es: '/og-image-es.png' };
+const ogImageURL = new URL(ogImageFile[lang], Astro.site);
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'neto.studio',
+  url: Astro.site?.href,
+  logo: new URL('/neto-logo.svg', Astro.site).href,
+  image: ogImageURL.href,
+  email: 'info@neto.studio',
+  description: t.meta.description,
+  inLanguage: lang,
+};
 ---
 
 <!doctype html>
@@ -34,12 +57,17 @@ const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_ES' };
       href={new URL(getLocalizedPath(Astro.url, 'en'), Astro.site)}
     />
 
-    <title>{t.meta.title}</title>
-    <meta name="description" content={t.meta.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={t.meta.title} />
-    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t.meta.ogImageAlt} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="neto.studio" />
     <meta property="og:locale" content={ogLocaleMap[lang]} />
@@ -49,6 +77,9 @@ const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_ES' };
         .map((locale) => <meta property="og:locale:alternate" content={ogLocaleMap[locale]} />)
     }
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <slot />
