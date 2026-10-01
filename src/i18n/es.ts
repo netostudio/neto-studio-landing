@@ -3,7 +3,7 @@ import type { Dictionary } from './types';
 export const es: Dictionary = {
   meta: {
     ogImageAlt: 'neto.studio: liderazgo tecnológico y rescate de producto para empresas',
-    title: 'neto.studio | Liderazgo Tecnológico y Rescate de Producto para Empresas',
+    title: 'CTO a tiempo parcial para PYMEs | neto.studio',
     description:
       'Fractional CTO para PYMEs: dirección técnica a tiempo parcial con capacidad real de ejecución. Auditamos, saneamos y dirigimos tu tecnología, sin informes que nadie ejecuta ni fábricas de código sin rumbo.',
   },

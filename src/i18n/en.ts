@@ -3,7 +3,7 @@ import type { Dictionary } from './types';
 export const en: Dictionary = {
   meta: {
     ogImageAlt: 'neto.studio: technical leadership and product rescue for growing companies',
-    title: 'neto.studio | Technical Leadership and Product Rescue for Growing Companies',
+    title: 'Fractional CTO for smalll and mid-sized businesses | neto.studio',
     description:
       'Fractional CTO for small and mid-sized businesses, with real execution capacity. We audit, fix, and direct your technology, no reports that go nowhere and no code factories without direction.',
   },
