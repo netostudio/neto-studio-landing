@@ -3,7 +3,7 @@ import type { Dictionary } from './types';
 export const en: Dictionary = {
   meta: {
     ogImageAlt: 'neto.studio: technical leadership and product rescue for growing companies',
-    title: 'Fractional CTO for smalll and mid-sized businesses | neto.studio',
+    title: 'Fractional CTO for small and mid-sized businesses | neto.studio',
     description:
       'Fractional CTO for small and mid-sized businesses, with real execution capacity. We audit, fix, and direct your technology, no reports that go nowhere and no code factories without direction.',
   },
@@ -198,6 +198,11 @@ export const en: Dictionary = {
   languagePicker: {
     en: 'EN',
     es: 'ES',
+  },
+  notFound: {
+    title: 'Page not found',
+    description: 'The page you are looking for does not exist or has been moved.',
+    cta: 'Back to home',
   },
   legal: {
     privacy: {
