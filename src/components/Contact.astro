@@ -1,9 +1,11 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL;
+const privacyHref = getRelativeLocaleUrl(lang, 'privacy');
 ---
 
 <section id="contact" class="mx-auto max-w-3xl px-6 py-24">
@@ -27,10 +29,20 @@ const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL;
   </div>
 
   <!--
-    Static form: no `action`/submission backend yet.
-    Wire this up to a provider (Formspree, Resend, a serverless endpoint, etc.) once available.
+    Submits to /api/contact, which nginx proxies to the Make webhook (see nginx.conf.template).
+    Make creates the lead in Holded and sends the notification email.
   -->
-  <form class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
+  <form
+    id="contact-form"
+    action="/api/contact"
+    method="post"
+    class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2"
+    data-sending={t.contact.sending}
+    data-success={t.contact.status.success}
+    data-error={t.contact.status.error}
+    data-rate-limited={t.contact.status.rateLimited}
+  >
+    <input type="hidden" name="lang" value={lang} />
     <div class="flex flex-col gap-2">
       <label for="name" class="text-sm font-medium text-ink">{t.contact.fields.name}</label>
       <input
@@ -77,11 +89,72 @@ const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL;
       ></textarea>
     </div>
 
+    <label class="flex items-start gap-3 text-sm text-muted sm:col-span-2">
+      <input
+        id="privacy"
+        name="privacy"
+        type="checkbox"
+        value="accepted"
+        required
+        class="mt-0.5 h-4 w-4 shrink-0 accent-ink"
+      />
+      <span>
+        {t.contact.fields.privacyConsent}{' '}
+        <a href={privacyHref} class="font-medium text-ink underline underline-offset-4">
+          {t.contact.fields.privacyLink}
+        </a>
+      </span>
+    </label>
+
     <button
       type="submit"
-      class="rounded-md bg-ink px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 sm:col-span-2"
+      class="rounded-md bg-ink px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
     >
       {t.contact.submit}
     </button>
+
+    <p id="contact-status" role="status" aria-live="polite" class="hidden text-sm sm:col-span-2"></p>
   </form>
 </section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#contact-form');
+  const status = document.querySelector<HTMLParagraphElement>('#contact-status');
+  const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+  function showStatus(message: string, ok: boolean) {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.remove('hidden', 'text-emerald-500', 'text-crimson');
+    status.classList.add(ok ? 'text-emerald-500' : 'text-crimson');
+  }
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!button) return;
+
+    const { sending = '', success = '', error = '', rateLimited = '' } = form.dataset;
+    const submitLabel = button.textContent;
+    button.disabled = true;
+    button.textContent = sending;
+    status?.classList.add('hidden');
+
+    try {
+      const body = new URLSearchParams();
+      new FormData(form).forEach((value, key) => body.append(key, String(value)));
+      const res = await fetch(form.action, { method: 'POST', body });
+
+      if (res.ok) {
+        form.reset();
+        showStatus(success, true);
+      } else {
+        showStatus(res.status === 429 ? rateLimited : error, false);
+      }
+    } catch {
+      showStatus(error, false);
+    } finally {
+      button.disabled = false;
+      button.textContent = submitLabel;
+    }
+  });
+</script>

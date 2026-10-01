@@ -75,8 +75,16 @@ export type Dictionary = {
       roleOptions: string[];
       rolePlaceholder: string;
       message: string;
+      privacyConsent: string;
+      privacyLink: string;
     };
     submit: string;
+    sending: string;
+    status: {
+      success: string;
+      error: string;
+      rateLimited: string;
+    };
     scheduleNote: string;
     scheduleCta: string;
   };
