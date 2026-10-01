@@ -2,9 +2,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { loadEnv } from 'vite';
+import { rename, rmdir } from 'node:fs/promises';
 
-// In production nginx proxies /api/contact to the Make webhook (see
-// nginx.conf.template). `astro dev` has no nginx, so mirror that proxy here.
+// In production a Cloudflare Pages Function forwards /api/contact to the Make
+// webhook (see functions/api/contact.ts). `astro dev` does not run Pages
+// Functions, so mirror that proxy here.
 const { MAKE_WEBHOOK_URL, MAKE_WEBHOOK_APIKEY } = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
 const contactProxy = MAKE_WEBHOOK_URL
   ? {
@@ -16,6 +18,22 @@ const contactProxy = MAKE_WEBHOOK_URL
       },
     }
   : undefined;
+
+// Cloudflare Pages serves the closest 404.html up the path (es/404.html for
+// /es/...). Astro only emits a flat 404.html for the root 404 page, so move
+// the localized one from es/404/index.html to es/404.html after the build.
+const localized404 = {
+  name: 'localized-404',
+  hooks: {
+    'astro:build:done': async ({ dir }) => {
+      for (const locale of ['es']) {
+        const from = new URL(`${locale}/404/index.html`, dir);
+        await rename(from, new URL(`${locale}/404.html`, dir));
+        await rmdir(new URL(`${locale}/404/`, dir));
+      }
+    },
+  },
+};
 
 export default defineConfig({
   site: 'https://neto.studio',
@@ -29,9 +47,10 @@ export default defineConfig({
         defaultLocale: 'en',
         locales: { en: 'en', es: 'es' },
       },
-      // Legal pages are noindex (see their Layout props), so keep them out.
-      filter: (page) => !/\/(privacy|terms)\/$/.test(page),
+      // Legal and 404 pages are noindex (see their Layout props), so keep them out.
+      filter: (page) => !/\/(privacy|terms|404)\/$/.test(page),
     }),
+    localized404,
   ],
   i18n: {
     locales: ['en', 'es'],

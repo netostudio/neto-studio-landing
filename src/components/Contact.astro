@@ -20,7 +20,7 @@ const privacyHref = getRelativeLocaleUrl(lang, 'privacy');
       scheduleHref && (
         <p class="mt-4 text-sm text-muted">
           {t.contact.scheduleNote}{' '}
-          <a href={scheduleHref} class="font-medium text-ink underline underline-offset-4">
+          <a href={scheduleHref} target="_blank" class="font-medium text-ink underline underline-offset-4">
             {t.contact.scheduleCta}
           </a>
         </p>
@@ -29,7 +29,8 @@ const privacyHref = getRelativeLocaleUrl(lang, 'privacy');
   </div>
 
   <!--
-    Submits to /api/contact, which nginx proxies to the Make webhook (see nginx.conf.template).
+    Submits to /api/contact, a Cloudflare Pages Function that forwards it to the Make webhook
+    (see functions/api/contact.ts).
     Make creates the lead in Holded and sends the notification email.
   -->
   <form
