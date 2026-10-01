@@ -1,5 +1,5 @@
 export type Dictionary = {
-  meta: { title: string; description: string };
+  meta: { title: string; description: string; ogImageAlt: string };
   nav: { services: string; methodology: string; about: string; scheduleCta: string };
   hero: {
     title: string[];
@@ -93,11 +93,13 @@ export type Dictionary = {
   legal: {
     privacy: {
       title: string;
+      description: string;
       lastUpdated: string;
       sections: { heading: string; body: string }[];
     };
     terms: {
       title: string;
+      description: string;
       lastUpdated: string;
       sections: { heading: string; body: string }[];
     };

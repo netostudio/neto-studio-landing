@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 import { loadEnv } from 'vite';
 
 // In production nginx proxies /api/contact to the Make webhook (see
@@ -19,6 +20,19 @@ const contactProxy = MAKE_WEBHOOK_URL
 export default defineConfig({
   site: 'https://neto.studio',
   output: 'static',
+  // Canonical URLs end with a slash (directory build format), so internal
+  // links must too, otherwise each page is reachable under two URLs.
+  trailingSlash: 'always',
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: { en: 'en', es: 'es' },
+      },
+      // Legal pages are noindex (see their Layout props), so keep them out.
+      filter: (page) => !/\/(privacy|terms)\/$/.test(page),
+    }),
+  ],
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',

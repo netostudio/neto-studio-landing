@@ -6,10 +6,10 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const { title, lastUpdated, sections } = t.legal.terms;
+const { title, description, lastUpdated, sections } = t.legal.terms;
 ---
 
-<Layout>
+<Layout title={`${title} | neto.studio`} description={description} noindex>
   <Header />
   <main class="mx-auto max-w-3xl px-6 py-24">
     <h1 class="text-3xl font-bold tracking-tight text-ink">{title}</h1>

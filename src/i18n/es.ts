@@ -2,7 +2,8 @@ import type { Dictionary } from './types';
 
 export const es: Dictionary = {
   meta: {
-    title: 'neto.studio | Liderazgo Tecnológico y Rescate de Producto para Empresas',
+    ogImageAlt: 'neto.studio: liderazgo tecnológico y rescate de producto para empresas',
+    title: 'CTO a tiempo parcial para PYMEs | neto.studio',
     description:
       'Fractional CTO para PYMEs: dirección técnica a tiempo parcial con capacidad real de ejecución. Auditamos, saneamos y dirigimos tu tecnología, sin informes que nadie ejecuta ni fábricas de código sin rumbo.',
   },
@@ -201,6 +202,7 @@ export const es: Dictionary = {
   legal: {
     privacy: {
       title: 'Política de Privacidad',
+      description: 'Cómo neto.studio recoge, usa y conserva los datos que envías a través de esta web.',
       lastUpdated: 'Última actualización: octubre de 2026',
       sections: [
         {
@@ -223,6 +225,7 @@ export const es: Dictionary = {
     },
     terms: {
       title: 'Términos y Condiciones',
+      description: 'Condiciones que regulan el uso de la web de neto.studio y de sus servicios de asesoría.',
       lastUpdated: 'Última actualización: agosto de 2026',
       sections: [
         {
