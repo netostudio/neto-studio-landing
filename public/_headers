@@ -1,0 +1,13 @@
+# Cloudflare Pages response headers.
+
+# Hashed, content-addressed assets (JS/CSS/fonts) - safe to cache forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Keep the pages.dev hostnames (production and previews) out of search
+# results; only neto.studio should be indexed.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

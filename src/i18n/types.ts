@@ -90,6 +90,7 @@ export type Dictionary = {
   };
   footer: { tagline: string; privacy: string; terms: string };
   languagePicker: { en: string; es: string };
+  notFound: { title: string; description: string; cta: string };
   legal: {
     privacy: {
       title: string;

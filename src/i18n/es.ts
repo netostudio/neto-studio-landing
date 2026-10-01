@@ -199,6 +199,11 @@ export const es: Dictionary = {
     en: 'EN',
     es: 'ES',
   },
+  notFound: {
+    title: 'Página no encontrada',
+    description: 'La página que buscas no existe o ha cambiado de dirección.',
+    cta: 'Volver al inicio',
+  },
   legal: {
     privacy: {
       title: 'Política de Privacidad',
