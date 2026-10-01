@@ -6,7 +6,7 @@ Guidance for working in this repo (neto.studio landing page). See also README.md
 - Astro 5 (`output: 'static'`), Tailwind CSS 4 via `@tailwindcss/vite` (CSS-first config: `src/styles/global.css` does `@import 'tailwindcss'; @config '../../tailwind.config.mjs';` - not the `@astrojs/tailwind` integration)
 - Astro's native i18n: `en` (default, served at `/`) and `es` (served at `/es/`)
 - Strict TypeScript (`astro/tsconfigs/strict`)
-- Hosted on Cloudflare Pages (static build + Pages Functions in `functions/`, headers in `public/_headers`). Functions use inline types, not `@cloudflare/workers-types`, since `astro check` type-checks them too.
+- Hosted on Cloudflare Pages (static build + Pages Functions in `functions/`, headers in `public/_headers`). Functions use inline types, not `@cloudflare/workers-types`, since `astro check` type-checks them too. Never add `wrangler` to `package.json`: the Pages build then mixes esbuild versions and fails to compile Functions; it is installed globally in `Dockerfile.pages` only.
 - No tests, no linter/formatter configured, no CI
 
 ## Component conventions
