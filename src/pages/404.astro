@@ -1,0 +1,30 @@
+---
+// Cloudflare Pages serves the closest 404.html with a 404 status. Without it,
+// Pages falls back to SPA mode and answers 200 with the home page for any
+// unknown URL (soft 404s).
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { title, description, cta } = t.notFound;
+---
+
+<Layout title={`${title} | neto.studio`} description={description} noindex>
+  <Header />
+  <main class="mx-auto max-w-3xl px-6 py-32 text-center">
+    <p class="text-sm font-semibold text-muted">404</p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink">{title}</h1>
+    <p class="mt-4 text-muted">{description}</p>
+    <a
+      href={getRelativeLocaleUrl(lang)}
+      class="mt-10 inline-block rounded-md bg-ink px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90"
+    >
+      {cta}
+    </a>
+  </main>
+  <Footer />
+</Layout>
