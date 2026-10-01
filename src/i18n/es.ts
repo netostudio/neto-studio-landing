@@ -176,8 +176,16 @@ export const es: Dictionary = {
       ],
       rolePlaceholder: 'Selecciona tu rol',
       message: 'Mensaje / URL de la plataforma',
+      privacyConsent: 'He leído y acepto la',
+      privacyLink: 'política de privacidad',
     },
     submit: 'Enviar Mensaje',
+    sending: 'Enviando...',
+    status: {
+      success: '¡Gracias! Hemos recibido tu mensaje y te responderemos lo antes posible.',
+      error: 'No hemos podido enviar tu mensaje. Inténtalo de nuevo en unos minutos.',
+      rateLimited: 'Demasiados intentos. Espera un minuto y vuelve a intentarlo.',
+    },
     scheduleNote: '¿Prefieres hablar en directo?',
     scheduleCta: 'Agendar Diagnóstico',
   },
@@ -193,7 +201,7 @@ export const es: Dictionary = {
   legal: {
     privacy: {
       title: 'Política de Privacidad',
-      lastUpdated: 'Última actualización: agosto de 2026',
+      lastUpdated: 'Última actualización: octubre de 2026',
       sections: [
         {
           heading: '1. Datos que recopilamos',
@@ -201,7 +209,7 @@ export const es: Dictionary = {
         },
         {
           heading: '2. Cómo la usamos',
-          body: 'Usamos la información que envías exclusivamente para responder a tu consulta, preparar una propuesta o agendar una llamada de diagnóstico. No vendemos ni compartimos tus datos con terceros.',
+          body: 'Usamos la información que envías exclusivamente para responder a tu consulta, preparar una propuesta o agendar una llamada de diagnóstico. La base legal de este tratamiento es el consentimiento que nos das al enviar el formulario. Nunca vendemos tus datos. Para gestionar tu consulta nos apoyamos en proveedores que actúan como encargados del tratamiento por cuenta nuestra: Make (Celonis), que recibe el envío del formulario, y Holded, que usamos para gestionar los contactos de clientes.',
         },
         {
           heading: '3. Conservación de datos',

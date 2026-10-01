@@ -176,8 +176,16 @@ export const en: Dictionary = {
       ],
       rolePlaceholder: 'Select your role',
       message: 'Message / Platform URL',
+      privacyConsent: 'I have read and accept the',
+      privacyLink: 'privacy policy',
     },
     submit: 'Send Message',
+    sending: 'Sending...',
+    status: {
+      success: "Thanks! We've received your message and will get back to you shortly.",
+      error: 'Your message could not be sent. Please try again in a few minutes.',
+      rateLimited: 'Too many attempts. Please wait a minute and try again.',
+    },
     scheduleNote: 'Prefer a live conversation?',
     scheduleCta: 'Schedule Diagnostic',
   },
@@ -193,7 +201,7 @@ export const en: Dictionary = {
   legal: {
     privacy: {
       title: 'Privacy Policy',
-      lastUpdated: 'Last updated: August 2026',
+      lastUpdated: 'Last updated: October 2026',
       sections: [
         {
           heading: '1. Data we collect',
@@ -201,7 +209,7 @@ export const en: Dictionary = {
         },
         {
           heading: '2. How we use it',
-          body: 'We use the information you submit exclusively to respond to your inquiry, prepare a proposal, or schedule a diagnostic call. We do not sell or share your data with third parties.',
+          body: 'We use the information you submit exclusively to respond to your inquiry, prepare a proposal, or schedule a diagnostic call. The legal basis for this processing is the consent you give when submitting the form. We never sell your data. To process your inquiry we rely on service providers acting as data processors on our behalf: Make (Celonis), which receives the form submission, and Holded, which we use to manage client contacts.',
         },
         {
           heading: '3. Data retention',
