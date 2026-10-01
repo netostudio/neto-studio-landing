@@ -60,7 +60,7 @@ export const en: Dictionary = {
       list: [
         'Code, architecture, and infrastructure audit',
         'Security and dependency review',
-        'Prioritized risk matrix (Critical / High / Medium)',
+        'Prioritized risk matrix (Critical / High / Medium / Low)',
         '90-day roadmap with concrete actions',
       ],
       price: 'From €1,800 + VAT',

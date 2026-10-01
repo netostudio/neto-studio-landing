@@ -55,12 +55,12 @@ export const es: Dictionary = {
       slug: 'neto / audit',
       name: 'Auditoría Técnica + Plan de Acción',
       description:
-        '1-2 semanas de revisión exhaustiva de código, infraestructura y seguridad, con hoja de ruta a 90 días y precio cerrado desde el primer día.',
+        '1-2 semanas de revisión exhaustiva de código, infraestructura, equipo y seguridad, con hoja de ruta a 90 días y precio cerrado desde el primer día.',
       listLabel: 'Entregables',
       list: [
         'Auditoría de código, arquitectura e infraestructura',
         'Auditoría de seguridad y dependencias',
-        'Matriz de riesgos priorizada (Crítico / Alto / Medio)',
+        'Matriz de riesgos priorizada (Crítico / Alto / Medio / Bajo)',
         'Hoja de ruta a 90 días con acciones concretas',
       ],
       price: 'Desde 1.800€ + IVA',
