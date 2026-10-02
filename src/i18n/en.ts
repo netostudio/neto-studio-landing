@@ -61,7 +61,7 @@ export const en: Dictionary = {
       list: [
         'Code, architecture, and infrastructure audit',
         'Security and dependency review',
-        'Prioritized risk matrix (Critical / High / Medium / Low)',
+        'Prioritised risk matrix (Critical / High / Medium / Low)',
         '90-day roadmap with concrete actions',
       ],
       price: 'From €1,800 + VAT',
@@ -88,13 +88,13 @@ export const en: Dictionary = {
       slug: 'neto / rescue',
       name: 'Rescue Projects',
       description:
-        'Fixed-scope projects of 4 to 8 weeks to solve critical technical problems or stabilize a system that cannot take the pressure.',
+        'Fixed-scope projects of 4 to 8 weeks to solve critical technical problems or stabilise a system that cannot take the pressure.',
       listLabel: 'Best for',
       list: [
         'Cleaning up code inherited from an external agency',
         'Preparing your systems for major growth or a large new client',
         'Fixing underlying flaws before they become an expensive problem',
-        'Stabilizing software built with AI and no technical oversight',
+        'Stabilising software built with AI and no technical oversight',
       ],
       price: 'Fixed quote after diagnostic',
       priceNote: '4-8 week project',
@@ -105,7 +105,7 @@ export const en: Dictionary = {
     badge: 'Sample Deliverable',
     title: 'This is what your Technical Audit report looks like.',
     subtitle:
-      'Every audit ends in a prioritized, business-readable roadmap, not a PDF nobody opens again.',
+      'Every audit ends in a prioritised, business-readable roadmap, not a PDF nobody opens again.',
     riskMatrixTitle: 'Risk Impact Matrix',
     riskMatrixActionLabel: 'Action',
     risks: [
@@ -136,8 +136,8 @@ export const en: Dictionary = {
     ],
     roadmapTitle: '90-Day Roadmap',
     roadmap: [
-      { period: 'Month 1', label: 'Critical sanitization' },
-      { period: 'Month 2', label: 'Stabilization and risk control' },
+      { period: 'Month 1', label: 'Critical sanitisation' },
+      { period: 'Month 2', label: 'Stabilisation and risk control' },
       { period: 'Month 3', label: 'Speed in delivery and next steps' },
     ],
   },
@@ -220,7 +220,7 @@ export const en: Dictionary = {
         },
         {
           heading: '3. Data retention',
-          body: 'We retain correspondence and engagement records for as long as necessary to fulfill the purposes described above and to comply with legal and contractual obligations.',
+          body: 'We retain correspondence and engagement records for as long as necessary to fulfil the purposes described above and to comply with legal and contractual obligations.',
         },
         {
           heading: '4. Contact',
@@ -239,7 +239,7 @@ export const en: Dictionary = {
         },
         {
           heading: '2. Engagement terms',
-          body: 'Pricing shown on this website is indicative and excludes applicable taxes (VAT). Final terms, including payment schedule and cancellation conditions, are formalized in the service agreement signed prior to the start of any engagement.',
+          body: 'Pricing shown on this website is indicative and excludes applicable taxes (VAT). Final terms, including payment schedule and cancellation conditions, are formalised in the service agreement signed prior to the start of any engagement.',
         },
         {
           heading: '3. Confidentiality',
