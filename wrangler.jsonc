@@ -18,5 +18,11 @@
   },
   // The site is served only from its custom domain (neto.studio).
   "workers_dev": false,
-  "previews": {}
+  "previews": {},
+  "observability": {
+    "logs": {
+      "enabled": false,
+      "invocation_logs": true
+    }
+  }
 }
