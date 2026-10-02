@@ -224,7 +224,7 @@ export const es: Dictionary = {
         },
         {
           heading: '4. Contacto',
-          body: 'Para cualquier solicitud relacionada con privacidad, escríbenos a través del formulario de contacto en nuestra página principal.',
+          body: 'Para cualquier solicitud relacionada con privacidad, escríbenos a info@neto.studio.',
         },
       ],
     },
@@ -247,7 +247,7 @@ export const es: Dictionary = {
         },
         {
           heading: '4. Contacto',
-          body: 'Para cualquier duda sobre estos términos, escríbenos a través del formulario de contacto en nuestra página principal.',
+          body: 'Para cualquier duda sobre estos términos, escríbenos a info@neto.studio.',
         },
       ],
     },

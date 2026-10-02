@@ -224,7 +224,7 @@ export const en: Dictionary = {
         },
         {
           heading: '4. Contact',
-          body: 'For any privacy-related request, reach out through the contact form on our homepage.',
+          body: 'For any privacy-related request, send an email to info@neto.studio.',
         },
       ],
     },
@@ -247,7 +247,7 @@ export const en: Dictionary = {
         },
         {
           heading: '4. Contact',
-          body: 'For questions about these terms, reach out through the contact form on our homepage.',
+          body: 'For questions about these terms, send an email to info@neto.studio.',
         },
       ],
     },
