@@ -24,5 +24,8 @@
       "enabled": true,
       "invocation_logs": true
     }
+  },
+  "vars": {
+    "PUBLIC_CALENDLY_URL": "https://calendly.com/juan-tekileria/30min"
   }
 }
