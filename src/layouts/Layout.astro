@@ -15,7 +15,7 @@ const t = useTranslations(lang);
 const { title = t.meta.title, description = t.meta.description, noindex = false } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_ES' };
+const ogLocaleMap: Record<string, string> = { en: 'en_GB', es: 'es_ES' };
 // Supplied as static files in public/ (1200x630), one per language because
 // the image carries the hero claim.
 const ogImageFile: Record<string, string> = { en: '/og-image.png', es: '/og-image-es.png' };
