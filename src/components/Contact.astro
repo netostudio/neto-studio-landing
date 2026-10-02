@@ -29,9 +29,9 @@ const privacyHref = getRelativeLocaleUrl(lang, 'privacy');
   </div>
 
   <!--
-    Submits to /api/contact, a Cloudflare Pages Function that forwards it to the Make webhook
-    (see functions/api/contact.ts).
-    Make creates the lead in Holded and sends the notification email.
+    Submits to /api/contact, handled by the Cloudflare Worker that forwards it to the Make
+    webhook (see worker/index.ts).
+    Make creates the lead in Holded and sends the notification.
   -->
   <form
     id="contact-form"
