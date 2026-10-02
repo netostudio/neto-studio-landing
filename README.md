@@ -114,7 +114,7 @@ The `workers.dev` URL is disabled (`"workers_dev": false`), so the deployed site
 
 ### 1. Worker settings
 
-1. Cloudflare dashboard > Workers & Pages > Create application > Import a repository, and pick this repository. The Worker name must be `neto-studio`, the `name` in `wrangler.jsonc`; otherwise the build fails.
+1. Cloudflare dashboard > Workers & Pages > Create application > Import a repository, and pick this repository. The Worker name must be `neto-studio-landing`, the `name` in `wrangler.jsonc`; otherwise the build fails.
 2. Build settings: build command `npm run build`, deploy command `npx wrangler deploy`, root directory empty. The Node version comes from `.nvmrc`.
 3. Variables. Build and runtime variables are separate in Workers, and each one only exists where it is defined:
    - `PUBLIC_CALENDLY_URL`: Settings > **Build** > Variables and secrets (it is inlined into the HTML at build time; a runtime variable is not visible to the build).
@@ -134,7 +134,7 @@ The domain stays registered at Squarespace; only its nameservers move. Cloudflar
 
 ### 3. Custom domain, redirect and rate limiting
 
-1. Worker `neto-studio` > Settings > Domains & Routes > Add > Custom domain: add `neto.studio` and `www.neto.studio`.
+1. Worker `neto-studio-landing` > Settings > Domains & Routes > Add > Custom domain: add `neto.studio` and `www.neto.studio`.
 2. Rules > Redirect Rules: create a rule from the "Redirect from WWW to root" template (301, preserving path and query string).
 3. Security > WAF > Rate limiting rules: one rule matching `URI Path equals /api/contact` and `Request Method equals POST`, counted per IP. On the Free plan the period is 10 seconds (for example, 2 requests per 10 s), looser than a per-minute limit but enough to stop floods.
 
