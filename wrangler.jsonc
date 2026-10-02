@@ -2,7 +2,7 @@
 // deploy`) and by the local worker service (`wrangler dev`).
 {
   // Must match the Worker name in the Cloudflare dashboard, or the build fails.
-  "name": "neto-studio",
+  "name": "neto-studio-landing",
   // Workers runtime version. Also used locally, so both behave the same.
   "compatibility_date": "2026-05-01",
   // Only handles /api/* (see run_worker_first); everything else is static.
