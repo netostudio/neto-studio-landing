@@ -4,9 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import { loadEnv } from 'vite';
 import { rename, rmdir } from 'node:fs/promises';
 
-// In production a Cloudflare Pages Function forwards /api/contact to the Make
-// webhook (see functions/api/contact.ts). `astro dev` does not run Pages
-// Functions, so mirror that proxy here.
+// In production the Cloudflare Worker forwards /api/contact to the Make
+// webhook (see worker/index.ts). `astro dev` does not run the Worker, so
+// mirror that proxy here.
 const { MAKE_WEBHOOK_URL, MAKE_WEBHOOK_APIKEY } = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
 const contactProxy = MAKE_WEBHOOK_URL
   ? {
@@ -19,8 +19,8 @@ const contactProxy = MAKE_WEBHOOK_URL
     }
   : undefined;
 
-// Cloudflare Pages serves the closest 404.html up the path (es/404.html for
-// /es/...). Astro only emits a flat 404.html for the root 404 page, so move
+// Cloudflare serves the closest 404.html up the path (es/404.html for /es/...,
+// see not_found_handling in wrangler.jsonc). Astro only emits a flat 404.html for the root 404 page, so move
 // the localized one from es/404/index.html to es/404.html after the build.
 const localized404 = {
   name: 'localized-404',

@@ -1,7 +1,6 @@
 ---
-// Cloudflare Pages serves the closest 404.html with a 404 status. Without it,
-// Pages falls back to SPA mode and answers 200 with the home page for any
-// unknown URL (soft 404s).
+// Cloudflare serves the closest 404.html with a 404 status for unknown URLs
+// (not_found_handling: "404-page" in wrangler.jsonc), avoiding soft 404s.
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';

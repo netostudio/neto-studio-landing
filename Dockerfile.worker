@@ -1,10 +1,11 @@
-# Local Cloudflare Pages runtime: serves the static build and runs the Pages
-# Functions in functions/ with wrangler, as in production. Debian based
-# because workerd (wrangler's runtime) does not run on alpine/musl.
+# Local Cloudflare Workers runtime: serves the static build and runs the
+# Worker (worker/index.ts) with `wrangler dev`, using the same wrangler.jsonc
+# as production. Debian based because workerd (wrangler's runtime) does not
+# run on alpine/musl.
 FROM node:24-bookworm-slim
 
 # The slim image has no root certificates, which workerd needs for HTTPS
-# requests (the Function calls the Make webhook).
+# requests (the Worker calls the Make webhook).
 RUN apt-get update \
   && apt-get install -y --no-install-recommends ca-certificates \
   && rm -rf /var/lib/apt/lists/*
@@ -15,15 +16,12 @@ COPY package.json package-lock.json* ./
 RUN npm ci
 
 # wrangler is installed here and not in package.json on purpose: when the
-# project depends on it, the Cloudflare Pages build mixes the project's
-# esbuild with the one from its own toolchain and fails to compile the
-# Functions ("Host version ... does not match binary version ...").
+# project depended on it, the Cloudflare build mixed the project's esbuild
+# with the one from its own toolchain and failed ("Host version ... does not
+# match binary version ...").
 RUN npm install -g wrangler@4.86.0
 
 ENV WRANGLER_SEND_METRICS=false
-# Must match Settings > Runtime > Compatibility date of the Pages project, so
-# the Function behaves the same locally and in production.
-ENV COMPATIBILITY_DATE=2026-05-01
 
 EXPOSE 8788
 
@@ -32,4 +30,4 @@ EXPOSE 8788
 # never pass them as command line arguments, they would end up in logs. If
 # they are missing the site still runs and /api/contact answers 500.
 # wrangler is exec'd directly (not through npx) so it receives SIGTERM.
-CMD ["sh", "-c", "npm run build && exec wrangler pages dev dist --ip 0.0.0.0 --port 8788 --compatibility-date=\"$COMPATIBILITY_DATE\""]
+CMD ["sh", "-c", "npm run build && exec wrangler dev --ip 0.0.0.0 --port 8788"]

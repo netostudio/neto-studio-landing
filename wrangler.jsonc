@@ -1,0 +1,21 @@
+// Cloudflare Workers configuration. Used by Workers Builds (`npx wrangler
+// deploy`) and by the local worker service (`wrangler dev`).
+{
+  // Must match the Worker name in the Cloudflare dashboard, or the build fails.
+  "name": "neto-studio",
+  // Workers runtime version. Also used locally, so both behave the same.
+  "compatibility_date": "2026-05-01",
+  // Only handles /api/* (see run_worker_first); everything else is static.
+  "main": "./worker/index.ts",
+  "assets": {
+    "directory": "./dist/",
+    "binding": "ASSETS",
+    // Serves the closest 404.html (es/404.html under /es/) with a 404 status.
+    "not_found_handling": "404-page",
+    // The Worker only runs for these paths. Static assets never invoke it,
+    // so they stay free and unlimited.
+    "run_worker_first": ["/api/*"]
+  },
+  // The site is served only from its custom domain (neto.studio).
+  "workers_dev": false
+}

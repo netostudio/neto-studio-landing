@@ -27,16 +27,16 @@ This starts two services:
 | Service | URL | What it is |
 | ------- | --- | ---------- |
 | `web`   | [http://localhost:4321](http://localhost:4321) (Spanish at `/es/`) | `astro dev` with hot reload. Use it while developing. |
-| `pages` | [http://localhost:8788](http://localhost:8788) | The static build served by `wrangler pages dev`, with the `/api/contact` Function, exactly as it runs on Cloudflare Pages. It builds on start, so run `make restart` to see new changes. |
+| `worker` | [http://localhost:8788](http://localhost:8788) | The static build plus the Worker behind `/api/contact`, served by `wrangler dev` with `wrangler.jsonc`, exactly as it runs on Cloudflare. It builds on start, so run `make restart` to see new changes. |
 
 The source code is mounted as a volume, so changes to `src/` hot-reload in `web` without rebuilding the image.
 
 Useful `Makefile` commands:
 
 ```bash
-make up            # docker compose up -d (web + pages)
+make up            # docker compose up -d (web + worker)
 make down          # docker compose down
-make restart       # restart both services (pages rebuilds the site)
+make restart       # restart both services (worker rebuilds the site)
 make logs          # follow the container logs
 make sh            # open a shell inside the web container
 make test-contact  # send one real test submission (lead named [BORRAR])
@@ -66,14 +66,14 @@ Copy `.env.example` to `.env` and adjust:
 The form in `Contact.astro` posts to `/api/contact` on the same domain. The browser never sees the Make webhook URL or its API key:
 
 ```
-browser -> POST /api/contact -> Pages Function (max 16 KB, adds x-make-apikey) -> Make webhook
-        -> filter -> Holded "Create a Contact" (type lead) -> notification email (SMTP)
+browser -> POST /api/contact -> Worker (max 16 KB, adds x-make-apikey) -> Make webhook
+        -> filter -> Holded "Create a Contact" (type lead) -> notification (Slack)
 ```
 
-- **Production**: `functions/api/contact.ts` runs as a Cloudflare Pages Function and reads `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY` from the project secrets. If they are missing it answers 500. Per-IP rate limiting is a Cloudflare rate limiting rule (see "Deployment").
-- **Local**: the `pages` service runs the same Function with `wrangler pages dev`, and `astro dev` (`web` service) proxies `/api/contact` the same way (see `astro.config.mjs`). Both read the variables from `.env`.
-- `make test-contact` sends one real submission to `http://localhost:8788/api/contact`: it creates a lead named `[BORRAR]` in Holded and sends the notification email. Delete the lead afterwards.
-- The Holded and SMTP credentials live only in the Make scenario.
+- **Production**: `worker/index.ts` runs as a Cloudflare Worker only for `/api/*` (static pages never invoke it) and reads `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY` from the Worker secrets. If they are missing it answers 500. Per-IP rate limiting is a Cloudflare rate limiting rule (see "Deployment").
+- **Local**: the `worker` service runs the same Worker with `wrangler dev`, and `astro dev` (`web` service) proxies `/api/contact` the same way (see `astro.config.mjs`). Both read the variables from `.env`.
+- `make test-contact` sends one real submission to `http://localhost:8788/api/contact`: it creates a lead named `[BORRAR]` in Holded and sends the notification. Delete the lead afterwards.
+- The Holded and Slack credentials live only in the Make scenario.
 
 ## Project structure
 
@@ -91,10 +91,11 @@ src/
       index.astro      # Spanish landing page
       privacy.astro
       terms.astro
-functions/
-  api/contact.ts      # Cloudflare Pages Function behind /api/contact
+worker/
+  index.ts            # Cloudflare Worker behind /api/* (contact form proxy)
+wrangler.jsonc        # Cloudflare Workers config (production and local)
 public/
-  _headers            # Cloudflare Pages headers (asset caching, noindex on pages.dev)
+  _headers            # static asset headers (long cache for /_astro/)
   robots.txt
   og-image.png        # social preview images (1200x630), one per language
   og-image-es.png
@@ -103,40 +104,42 @@ public/
 
 ## Production build
 
-`npm run build` runs `astro check` (type validation) followed by `astro build`, generating the static site into `dist/`. Locally, the `pages` service runs it on every start (see `make logs`). `PUBLIC_CALENDLY_URL` is inlined into the HTML at build time; `MAKE_WEBHOOK_*` are never part of the build.
+`npm run build` runs `astro check` (type validation) followed by `astro build`, generating the static site into `dist/`. Locally, the `worker` service runs it on every start (see `make logs`). `PUBLIC_CALENDLY_URL` is inlined into the HTML at build time; `MAKE_WEBHOOK_*` are never part of the build.
 
-## Deployment (Cloudflare Pages)
+## Deployment (Cloudflare Workers)
 
-The site is a Cloudflare Pages project connected to this GitHub repository. Every push to `main` deploys to production; other branches get preview deployments on `*.pages.dev` (kept out of search results by `public/_headers`).
+The site is the Cloudflare Worker `neto-studio` with static assets, connected to this GitHub repository through Workers Builds. Every push to `main` deploys to production. `wrangler.jsonc` holds the configuration (Worker name, compatibility date, assets, routing); the dashboard only holds the build settings and the variables.
 
-### 1. Create the Pages project
+The `workers.dev` URL is disabled (`"workers_dev": false`), so the deployed site is only reachable once `neto.studio` points to the Worker (steps 2 and 3). Until then, test locally with `make up`.
 
-1. Cloudflare dashboard > Workers & Pages > Create > Pages > Connect to Git, and pick this repository.
-2. Build settings: framework preset **Astro**, build command `npm run build`, output directory `dist`. The Node version comes from `.nvmrc`.
-   Then Settings > Runtime > Compatibility date: set it to the `COMPATIBILITY_DATE` in `Dockerfile.pages`, so the Function runs the same locally and in production.
-3. Settings > Variables and Secrets, for both Production and Preview:
-   - `PUBLIC_CALENDLY_URL` as a plain variable (inlined at build time).
-   - `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY` as **secrets** (encrypted). Same values as in your `.env`; they never go into the repository.
-4. Redeploy, open the `*.pages.dev` URL and send the contact form (or `make test-contact CONTACT_URL=https://<project>.pages.dev/api/contact`). Delete the `[BORRAR]` lead in Holded afterwards.
+### 1. Worker settings
+
+1. Cloudflare dashboard > Workers & Pages > Create application > Import a repository, and pick this repository. The Worker name must be `neto-studio`, the `name` in `wrangler.jsonc`; otherwise the build fails.
+2. Build settings: build command `npm run build`, deploy command `npx wrangler deploy`, root directory empty. The Node version comes from `.nvmrc`.
+3. Variables. Build and runtime variables are separate in Workers, and each one only exists where it is defined:
+   - `PUBLIC_CALENDLY_URL`: Settings > **Build** > Variables and secrets (it is inlined into the HTML at build time; a runtime variable is not visible to the build).
+   - `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY`: Settings > **Variables & Secrets**, type **Secret** (read by the Worker at runtime). Same values as in your `.env`; they never go into the repository.
+4. Changing a variable does not affect the current deployment: redeploy (or push) afterwards.
 
 ### 2. Move the DNS of neto.studio to Cloudflare
 
-The domain stays registered at Squarespace; only its nameservers move. Cloudflare needs the zone to serve the apex domain (`neto.studio`) from Pages and to apply the redirect and rate limiting rules.
+The domain stays registered at Squarespace; only its nameservers move. Cloudflare needs the zone to serve `neto.studio` from the Worker and to apply the redirect and rate limiting rules.
 
 1. Squarespace > Domains > neto.studio > DNS: **turn DNSSEC off**. Wait until the DS record is gone (`Resolve-DnsName neto.studio -Type DS` returns no answer; up to 24-48 h). Switching nameservers while DNSSEC is on breaks the whole domain, email included.
 2. Cloudflare > Add a domain > `neto.studio` > Free plan. Review the imported records:
    - Keep the 5 Google Workspace `MX` records (`aspmx.l.google.com` and `alt1` to `alt4`) and the `TXT` `google-site-verification`. Without the MX records, email to `info@neto.studio` stops arriving.
-   - Delete the Squarespace `A` records of `neto.studio` and the `www` `CNAME` to `ext-sq.squarespace.com`; Pages creates its own in step 3.
+   - Delete the Squarespace `A` records of `neto.studio` and the `www` `CNAME` to `ext-sq.squarespace.com`; the Worker custom domains create their own records in step 3.
 3. Squarespace: replace the nameservers with the two Cloudflare gives you. Wait until Cloudflare shows the zone as Active.
 4. Optional: re-enable DNSSEC from Cloudflare (DNS > Settings) and add the DS record it shows in Squarespace.
 
 ### 3. Custom domain, redirect and rate limiting
 
-1. Pages project > Custom domains: add `neto.studio` and `www.neto.studio`.
+1. Worker `neto-studio` > Settings > Domains & Routes > Add > Custom domain: add `neto.studio` and `www.neto.studio`.
 2. Rules > Redirect Rules: create a rule from the "Redirect from WWW to root" template (301, preserving path and query string).
 3. Security > WAF > Rate limiting rules: one rule matching `URI Path equals /api/contact` and `Request Method equals POST`, counted per IP. On the Free plan the period is 10 seconds (for example, 2 requests per 10 s), looser than a per-minute limit but enough to stop floods.
 
 ### 4. After going live
 
+- Send the contact form on `https://neto.studio` (or `make test-contact CONTACT_URL=https://neto.studio/api/contact`) and delete the `[BORRAR]` lead in Holded afterwards.
 - Google Search Console: verify `neto.studio` and submit `https://neto.studio/sitemap-index.xml`.
 - Google Rich Results Test on the home page (JSON-LD) and LinkedIn Post Inspector (social preview images).
