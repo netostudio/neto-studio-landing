@@ -17,5 +17,6 @@
     "run_worker_first": ["/api/*"]
   },
   // The site is served only from its custom domain (neto.studio).
-  "workers_dev": false
+  "workers_dev": false,
+  "previews": {}
 }
