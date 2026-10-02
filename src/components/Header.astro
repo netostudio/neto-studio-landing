@@ -8,7 +8,9 @@ const t = useTranslations(lang);
 // Anchors point to the home page of the current language, so they also work
 // from the legal pages and never send Spanish visitors to the English home.
 const homeHref = getRelativeLocaleUrl(lang);
-const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL || `${homeHref}#contact`;
+const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
+const scheduleHref = calendlyUrl || `${homeHref}#contact`;
+const scheduleTarget = calendlyUrl ? "_blank" : "_self";
 ---
 
 <header class="sticky top-0 z-50 border-b border-black/10 bg-paper/80 backdrop-blur">
@@ -27,6 +29,7 @@ const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL || `${homeHref}#contact
       <LanguagePicker />
       <a
         href={scheduleHref}
+        target={scheduleTarget}
         class="hidden rounded-md border border-black/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-black/30 hover:bg-black/5 sm:inline-block"
       >
         {t.nav.scheduleCta}
