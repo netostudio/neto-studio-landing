@@ -4,7 +4,6 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const scheduleHref = import.meta.env.PUBLIC_CALENDLY_URL || '#contact';
 
 const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
 ---
@@ -38,7 +37,7 @@ const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
             <p class="text-lg font-semibold text-ink">{service.price}</p>
             <p class="text-xs text-muted">{service.priceNote}</p>
             <a
-              href={scheduleHref}
+              href="#contact"
               class="mt-5 block rounded-md bg-ink px-5 py-3 text-center text-sm font-semibold text-paper transition-opacity hover:opacity-90"
             >
               {service.cta}
