@@ -9,8 +9,7 @@ const t = useTranslations(lang);
 // from the legal pages and never send Spanish visitors to the English home.
 const homeHref = getRelativeLocaleUrl(lang);
 const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
-const scheduleHref = calendlyUrl || `${homeHref}#contact`;
-const scheduleTarget = calendlyUrl ? "_blank" : "_self";
+const scheduleHref = `${homeHref}#contact`;
 ---
 
 <header class="sticky top-0 z-50 border-b border-black/10 bg-paper/80 backdrop-blur">
@@ -29,7 +28,6 @@ const scheduleTarget = calendlyUrl ? "_blank" : "_self";
       <LanguagePicker />
       <a
         href={scheduleHref}
-        target={scheduleTarget}
         class="hidden rounded-md border border-black/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-black/30 hover:bg-black/5 sm:inline-block"
       >
         {t.nav.scheduleCta}

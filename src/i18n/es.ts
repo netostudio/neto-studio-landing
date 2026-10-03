@@ -11,7 +11,7 @@ export const es: Dictionary = {
     services: 'Servicios',
     methodology: 'Metodología',
     about: 'Sobre Neto',
-    scheduleCta: 'Agendar Diagnóstico',
+    scheduleCta: '¿Hablamos?',
   },
   hero: {
     title: ['Dirigimos tu tecnología.', 'Tú enfócate en tu negocio.'],
@@ -188,7 +188,7 @@ export const es: Dictionary = {
       rateLimited: 'Demasiados intentos. Espera un minuto y vuelve a intentarlo.',
     },
     scheduleNote: '¿Prefieres hablar en directo?',
-    scheduleCta: 'Agendar Diagnóstico',
+    scheduleCta: 'Agendar Llamada',
   },
   footer: {
     tagline: 'Dirección técnica y ejecución de ingeniería, sin letra pequeña.',

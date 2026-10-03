@@ -11,7 +11,7 @@ export const en: Dictionary = {
     services: 'Services',
     methodology: 'Methodology',
     about: 'About',
-    scheduleCta: 'Schedule Diagnostic',
+    scheduleCta: 'Let\'s talk',
   },
   hero: {
     title: ['We lead your technology.', 'You focus on your business.'],
@@ -188,7 +188,7 @@ export const en: Dictionary = {
       rateLimited: 'Too many attempts. Please wait a minute and try again.',
     },
     scheduleNote: 'Prefer a live conversation?',
-    scheduleCta: 'Schedule Diagnostic',
+    scheduleCta: 'Schedule a Call',
   },
   footer: {
     tagline: 'Technical direction and engineering execution, no fine print.',
