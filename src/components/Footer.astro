@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
-<footer id="about" class="border-t border-black/10">
+<footer id="about" data-hide-mobile-cta class="border-t border-black/10">
   <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
     <p>&copy; {year} neto.studio</p>
     <p class="text-center">{t.footer.tagline}</p>

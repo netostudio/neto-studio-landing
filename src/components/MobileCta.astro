@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!--
+  Mobile only: the header CTA is hidden below sm. Starts hidden and is toggled by the
+  script below, which hides it while any [data-hide-mobile-cta] section is on screen.
+-->
+<div
+  id="mobile-cta"
+  class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-black/10 bg-paper/80 px-6 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur transition-transform duration-300 sm:hidden"
+  inert
+>
+  <a
+    href="#contact"
+    class="block w-full rounded-md bg-ink px-6 py-3 text-center text-sm font-semibold text-paper transition-opacity hover:opacity-90"
+  >
+    {t.hero.ctaPrimary}
+  </a>
+</div>
+
+<script>
+  const bar = document.querySelector<HTMLDivElement>('#mobile-cta');
+  const targets = document.querySelectorAll<HTMLElement>('[data-hide-mobile-cta]');
+  const visible = new Set<Element>();
+
+  if (bar && targets.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
+      const hide = visible.size > 0;
+      bar.classList.toggle('translate-y-full', hide);
+      bar.inert = hide;
+    });
+    targets.forEach((target) => observer.observe(target));
+  }
+</script>
