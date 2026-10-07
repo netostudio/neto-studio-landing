@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="mx-auto max-w-4xl px-6 pb-20 pt-24 text-center sm:pt-32">
+<section data-hide-mobile-cta class="mx-auto max-w-4xl px-6 pb-20 pt-24 text-center sm:pt-32">
   <h1 class="mt-0 text-4xl font-bold tracking-tight text-ink sm:text-5xl md:text-6xl">
     {t.hero.title.map((line) => <span class="block">{line}{' '}</span>)}
   </h1>
