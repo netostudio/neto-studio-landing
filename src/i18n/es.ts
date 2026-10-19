@@ -77,7 +77,6 @@ export const es: Dictionary = {
       list: [
         'Arquitectura y estrategia técnica',
         'Coordinación del equipo técnico y de los proveedores externos',
-        'Intervención directa en el código cuando hace falta (puntual)',
         'Interlocución técnica con clientes, proveedores y socios',
       ],
       price: 'Desde 3.000€/mes + IVA',
