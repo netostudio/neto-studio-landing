@@ -243,7 +243,7 @@ export const es: Dictionary = {
         },
         {
           title: 'Accesos y revisión',
-          description: 'Nos das acceso de solo lectura y hablamos con quien haga falta. Coordinamos con tu proveedor sin interrumpir su trabajo.',
+          description: 'Nos das acceso de sólo lectura y hablamos con quien haga falta. Coordinamos con tu proveedor sin interrumpir su trabajo.',
         },
         {
           title: 'Informe y sesión con dirección',
@@ -262,7 +262,7 @@ export const es: Dictionary = {
         {
           question: '¿Necesitáis acceso a nuestro código y sistemas?',
           answer:
-            'Sí, en modo de solo lectura y bajo acuerdo de confidencialidad. Si hoy no sabes quién tiene esos accesos, averiguarlo ya es parte del trabajo.',
+            'Sí, en modo de sólo lectura y bajo acuerdo de confidencialidad. Si hoy no sabes quién tiene esos accesos, averiguarlo ya es parte del trabajo.',
         },
         {
           question: '¿Y si mi proveedor no colabora?',
