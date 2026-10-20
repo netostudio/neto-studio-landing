@@ -1,6 +1,17 @@
+export type AuditTier = {
+  slug: string;
+  name: string;
+  forWho: string;
+  price: string;
+  timeline: string;
+  includes: string[];
+  deliverable: string;
+  cta: string;
+};
+
 export type Dictionary = {
   meta: { title: string; description: string; ogImageAlt: string };
-  nav: { services: string; methodology: string; about: string; scheduleCta: string };
+  nav: { services: string; audit: string; about: string; scheduleCta: string };
   hero: {
     title: string[];
     subtitle: string;
@@ -60,6 +71,41 @@ export type Dictionary = {
     roadmapTitle: string;
     roadmap: { period: string; label: string }[];
   };
+  auditPage: {
+    meta: { title: string; description: string };
+    intro: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      unsureNote: string;
+      unsureCta: string;
+    };
+    tiers: {
+      highlightLabel: string;
+      priceNote: string;
+      timelineLabel: string;
+      includesLabel: string;
+      deliverableLabel: string;
+      check: AuditTier;
+      full: AuditTier;
+      diligence: AuditTier;
+    };
+    comparison: {
+      title: string;
+      featureLabel: string;
+      // One value per tier (check, full, diligence): true renders a check mark,
+      // false a dash, and a string is shown as is.
+      rows: { label: string; values: [boolean | string, boolean | string, boolean | string] }[];
+    };
+    process: {
+      title: string;
+      steps: { title: string; description: string }[];
+    };
+    faq: {
+      title: string;
+      items: { question: string; answer: string }[];
+    };
+  };
   guarantees: {
     title: string;
     items: { title: string; description: string }[];
@@ -74,6 +120,9 @@ export type Dictionary = {
       role: string;
       roleOptions: string[];
       rolePlaceholder: string;
+      service: string;
+      servicePlaceholder: string;
+      serviceOptions: { value: string; label: string }[];
       message: string;
       privacyConsent: string;
       privacyLink: string;

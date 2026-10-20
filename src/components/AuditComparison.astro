@@ -1,0 +1,45 @@
+---
+import { Check, Minus } from '@lucide/astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { comparison, tiers } = t.auditPage;
+const tierNames = [tiers.check.name, tiers.full.name, tiers.diligence.name];
+---
+
+<!-- Desktop only: on mobile the tier cards already carry the same information. -->
+<section class="mx-auto hidden max-w-6xl px-6 py-16 md:block">
+  <h2 class="text-center text-3xl font-bold tracking-tight text-ink">{comparison.title}</h2>
+
+  <div class="mt-10 overflow-hidden rounded-xl border border-black/10 bg-black/[0.02]">
+    <table class="w-full text-left text-sm">
+      <thead class="border-b border-black/10">
+        <tr>
+          <th scope="col" class="px-6 py-4 font-semibold text-muted">{comparison.featureLabel}</th>
+          {tierNames.map((name) => <th scope="col" class="w-48 px-6 py-4 text-center font-semibold text-ink">{name}</th>)}
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-black/10">
+        {
+          comparison.rows.map((row) => (
+            <tr>
+              <th scope="row" class="px-6 py-3.5 font-normal text-ink/90">{row.label}</th>
+              {row.values.map((value) => (
+                <td class="px-6 py-3.5 text-center">
+                  {value === true ? (
+                    <Check class="mx-auto h-4 w-4 text-emerald-500" stroke-width={2} />
+                  ) : value === false ? (
+                    <Minus class="mx-auto h-4 w-4 text-muted/50" stroke-width={2} />
+                  ) : (
+                    <span class="text-ink/90">{value}</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

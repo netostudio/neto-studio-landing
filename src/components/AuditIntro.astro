@@ -1,0 +1,24 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section data-hide-mobile-cta class="mx-auto max-w-4xl px-6 pb-8 pt-24 text-center sm:pt-32">
+  <span class="text-xs font-semibold uppercase tracking-wider text-emerald-500">
+    {t.auditPage.intro.badge}
+  </span>
+  <h1 class="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+    {t.auditPage.intro.title}
+  </h1>
+  <p class="mx-auto mt-6 max-w-2xl text-lg text-muted">
+    {t.auditPage.intro.subtitle}
+  </p>
+  <p class="mt-6 text-sm text-muted">
+    {t.auditPage.intro.unsureNote}{' '}
+    <a href="#contact" data-service="unsure" class="font-medium text-ink underline underline-offset-4">
+      {t.auditPage.intro.unsureCta}
+    </a>
+  </p>
+</section>

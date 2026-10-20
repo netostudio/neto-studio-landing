@@ -1,11 +1,18 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { Check } from '@lucide/astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
+// The audit card leads to the page with its three levels; the others go straight
+// to the contact form with the matching service pre-selected (see Contact.astro).
+const services = [
+  { ...t.catalog.audit, href: getRelativeLocaleUrl(lang, 'audit'), service: undefined },
+  { ...t.catalog.retainer, href: '#contact', service: 'fractional-cto' },
+  { ...t.catalog.sprints, href: '#contact', service: 'rescue' },
+];
 ---
 
 <section id="services" class="mx-auto max-w-6xl px-6 py-24">
@@ -37,7 +44,8 @@ const services = [t.catalog.audit, t.catalog.retainer, t.catalog.sprints];
             <p class="text-lg font-semibold text-ink">{service.price}</p>
             <p class="text-xs text-muted">{service.priceNote}</p>
             <a
-              href="#contact"
+              href={service.href}
+              data-service={service.service}
               class="mt-5 block rounded-md bg-ink px-5 py-3 text-center text-sm font-semibold text-paper transition-opacity hover:opacity-90"
             >
               {service.cta}
