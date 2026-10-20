@@ -16,11 +16,11 @@ Guidance for working in this repo (neto.studio landing page). See also README.md
   - translations are not passed via props. Follow this pattern in new components.
 - Almost no component uses typed `Props` (exception: `RiskBadge.astro`, which defines `interface Props`). Only type props if the component actually needs them.
 - Tailwind utility classes only, no scoped `<style>` blocks.
-- `Contact.astro` posts (via `fetch`) to `/api/contact`. There is no app backend: in production the Cloudflare Worker (`worker/index.ts`) forwards that path to a Make webhook, and in `astro dev` the Vite proxy in `astro.config.mjs` does the same. Make creates the lead in Holded and sends the notification; that logic lives in the Make scenario, not in this repo.
+- `Contact.astro` posts (via `fetch`) to `/api/contact`. There is no app backend: in production the Cloudflare Worker (`worker/index.ts`) forwards that path to a Make webhook, and in `astro dev` the `contactDevProxy` Vite plugin in `astro.config.mjs` does the same (a dev middleware, not a Vite `server.proxy`, which Astro's `trailingSlash: 'always'` check would shadow with a 404). Make creates the lead in Holded and sends the notification; that logic lives in the Make scenario, not in this repo.
 
 ## i18n - adding text or pages
-- Source of truth: `src/i18n/en.ts` (defines the `Dictionary` type via an explicit type annotation + values). `src/i18n/es.ts` must satisfy that same type.
-- To add a new string: add the key to `en.ts` (type + value), then the same key to `es.ts`. TypeScript fails the build if `es` doesn't satisfy `Dictionary`.
+- Source of truth: the `Dictionary` type in `src/i18n/types.ts`. Both `src/i18n/en.ts` and `src/i18n/es.ts` must satisfy it.
+- To add a new string: add the key to `types.ts`, then the value to `en.ts` and `es.ts`. TypeScript fails the build if either doesn't satisfy `Dictionary`.
 - To add a new page: create it under `src/pages/`, then duplicate it under `src/pages/es/`, adjusting only the relative import depth (`../` → `../../`). There's no generator or shared abstraction between the two versions - this duplication is intentional; keep following it unless a refactor is explicitly decided.
 - Utilities in `src/i18n/utils.ts`: `getLangFromUrl`, `useTranslations`, `getLocalizedPath` (used by `LanguagePicker.astro` for the language switcher).
 
