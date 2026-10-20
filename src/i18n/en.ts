@@ -228,6 +228,8 @@ export const en: Dictionary = {
         { label: '60-day follow-up', values: [false, false, true] },
         { label: 'Timeline', values: ['3-5 days', '2-3 weeks', '3-4 weeks'] },
       ],
+      included: 'Included',
+      notIncluded: 'Not included',
     },
     process: {
       title: 'How we work',

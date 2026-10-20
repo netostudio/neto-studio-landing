@@ -228,6 +228,8 @@ export const es: Dictionary = {
         { label: 'Seguimiento a los 60 días', values: [false, false, true] },
         { label: 'Plazo', values: ['3-5 días', '2-3 semanas', '3-4 semanas'] },
       ],
+      included: 'Incluido',
+      notIncluded: 'No incluido',
     },
     process: {
       title: 'Cómo trabajamos',

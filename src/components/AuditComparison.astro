@@ -28,9 +28,15 @@ const tierNames = [tiers.check.name, tiers.full.name, tiers.diligence.name];
               {row.values.map((value) => (
                 <td class="px-6 py-3.5 text-center">
                   {value === true ? (
-                    <Check class="mx-auto h-4 w-4 text-emerald-500" stroke-width={2} />
+                    <>
+                      <Check class="mx-auto h-4 w-4 text-emerald-500" stroke-width={2} />
+                      <span class="sr-only">{comparison.included}</span>
+                    </>
                   ) : value === false ? (
-                    <Minus class="mx-auto h-4 w-4 text-muted/50" stroke-width={2} />
+                    <>
+                      <Minus class="mx-auto h-4 w-4 text-muted/50" stroke-width={2} />
+                      <span class="sr-only">{comparison.notIncluded}</span>
+                    </>
                   ) : (
                     <span class="text-ink/90">{value}</span>
                   )}

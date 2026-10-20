@@ -96,6 +96,8 @@ export type Dictionary = {
       // One value per tier (check, full, diligence): true renders a check mark,
       // false a dash, and a string is shown as is.
       rows: { label: string; values: [boolean | string, boolean | string, boolean | string] }[];
+      included: string;
+      notIncluded: string;
     };
     process: {
       title: string;
