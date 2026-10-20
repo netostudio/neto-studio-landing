@@ -9,7 +9,7 @@ export const en: Dictionary = {
   },
   nav: {
     services: 'Services',
-    methodology: 'Methodology',
+    audit: 'Audit',
     about: 'About',
     scheduleCta: 'Let\'s talk',
   },
@@ -21,7 +21,7 @@ export const en: Dictionary = {
     ctaSecondary: 'See a Sample Audit',
   },
   metrics: [
-    { value: '2 weeks', label: 'Audit and 90-day roadmap' },
+    { value: 'From 3 days', label: 'Technical diagnostic with a prioritised plan' },
     { value: 'Clear pricing', label: 'Rates agreed upfront, no surprises' },
     { value: '30 days', label: 'Notice period, no lock-in' },
   ],
@@ -56,17 +56,17 @@ export const en: Dictionary = {
       slug: 'neto / audit',
       name: 'Technical Audit + Action Plan',
       description:
-        '1-2 weeks of deep review across code, infrastructure, team and security, with a clear 90-day roadmap and a fixed price from day one.',
-      listLabel: 'Deliverables',
+        'Three levels depending on what you need to know: from a check-up of a few days to full due diligence before raising or selling.',
+      listLabel: 'Levels',
       list: [
-        'Code, architecture, and infrastructure audit',
-        'Security and dependency review',
-        'Prioritised risk matrix (Critical / High / Medium / Low)',
-        '90-day roadmap with concrete actions',
+        'Tech Health Check: 3-5 days',
+        'Full Technical Audit: 2-3 weeks',
+        'Investment & Exit Readiness: 3-4 weeks',
+        'Prioritised risks and an action plan at every level',
       ],
-      price: 'From €1,800 + VAT',
-      priceNote: 'Fixed price, one-time',
-      cta: 'Order Audit',
+      price: 'From €1,500 + VAT',
+      priceNote: '3 levels, fixed price',
+      cta: 'See the 3 Levels',
     },
     retainer: {
       slug: 'neto / lead',
@@ -133,12 +133,155 @@ export const en: Dictionary = {
         action: 'Architecture docs and setup guide.',
       },
     ],
-    roadmapTitle: '90-Day Roadmap',
+    roadmapTitle: 'First 90 Days of the Roadmap',
     roadmap: [
       { period: 'Month 1', label: 'Critical sanitisation' },
       { period: 'Month 2', label: 'Stabilisation and risk control' },
       { period: 'Month 3', label: 'Speed in delivery and next steps' },
     ],
+  },
+  auditPage: {
+    meta: {
+      title: 'Technical audit for SMEs and startups | neto.studio',
+      description:
+        'Three fixed-price technical audit levels: a health check for SMEs that rely on a vendor, a full audit of in-house software, and technical readiness for investment or sale.',
+    },
+    intro: {
+      badge: 'Technical Audit',
+      title: 'Know where your technology stands before you decide.',
+      subtitle:
+        'Three levels depending on what is at stake: understanding where you stand with your vendor, deciding the future of your software, or arriving prepared for an investment or sale. Always at a fixed price, with a report your leadership team can read.',
+      unsureNote: 'Not sure which one you need?',
+      unsureCta: 'We will tell you in a 20-minute call',
+    },
+    tiers: {
+      highlightLabel: 'For business-critical software',
+      priceNote: '+ VAT, fixed price after an initial call',
+      timelineLabel: 'Timeline',
+      includesLabel: 'Includes',
+      deliverableLabel: 'Deliverable',
+      check: {
+        slug: 'neto / check',
+        name: 'Tech Health Check',
+        forWho:
+          'For SMEs with no technical staff in-house that rely on a vendor or agency and want to know where they stand.',
+        price: '€1,500-€2,500',
+        timeline: '3-5 days',
+        includes: [
+          'Interviews with leadership and with the vendor or technical lead',
+          'Inventory of systems, tools, vendors and contracts: who holds the code and who holds the passwords',
+          'Automated analysis of dependencies, secrets and cloud configuration',
+          'Review of access control and backups',
+        ],
+        deliverable:
+          'A 3-5 page, jargon-free report (overall traffic light, top risks and what to do first) and a 45-minute session with leadership.',
+        cta: 'Request a Health Check',
+      },
+      full: {
+        slug: 'neto / audit',
+        name: 'Full Technical Audit',
+        forWho:
+          'For SMEs with business-critical in-house software and startups that want to know where they stand before investing in a new phase.',
+        price: '€5,000-€8,000',
+        timeline: '2-3 weeks',
+        includes: [
+          'Review of 8 areas: architecture, code, operations, security, data, IP and dependencies, team and processes, and costs',
+          'Review of the vendor contract: code ownership, lock-in and what happens if they leave',
+          'Findings prioritised by impact and cost',
+          'The key decision: keep, rebuild, replace with an off-the-shelf product or change vendor',
+        ],
+        deliverable: 'A 6-12 month roadmap and a presentation to leadership.',
+        cta: 'Request an Audit',
+      },
+      diligence: {
+        slug: 'neto / diligence',
+        name: 'Investment & Exit Readiness',
+        forWho:
+          'For startups ahead of a Series A or B, or SMEs ahead of a sale or bringing in a partner.',
+        price: '€8,000-€12,000',
+        timeline: '3-4 weeks + follow-up',
+        includes: [
+          'Full review from the buyer or investor side: what they would find and how it would affect the price',
+          'Prioritised remediation plan before going to market',
+          'Technical data room prepared: document checklist and what is missing',
+          'Mock due diligence interviews with your CTO',
+          'Follow-up review after 60 days to check what has been fixed',
+        ],
+        deliverable: 'Remediation plan, technical data room ready and a due diligence rehearsal.',
+        cta: 'Request Readiness Review',
+      },
+    },
+    comparison: {
+      title: 'What each level includes',
+      featureLabel: 'Scope',
+      rows: [
+        { label: 'Interviews with leadership and vendor', values: [true, true, true] },
+        { label: 'Inventory of systems, access and backups', values: [true, true, true] },
+        { label: 'Automated analysis (dependencies, secrets, cloud)', values: [true, true, true] },
+        { label: 'In-depth code and architecture review', values: [false, true, true] },
+        { label: 'Vendor contract review', values: [false, true, true] },
+        { label: 'Keep / rebuild / replace / change decision', values: [false, true, true] },
+        { label: 'Roadmap', values: ['What to do first', '6-12 months', 'Remediation plan'] },
+        { label: 'Buyer or investor view', values: [false, false, true] },
+        { label: 'Technical data room', values: [false, false, true] },
+        { label: 'Mock due diligence', values: [false, false, true] },
+        { label: '60-day follow-up', values: [false, false, true] },
+        { label: 'Timeline', values: ['3-5 days', '2-3 weeks', '3-4 weeks'] },
+      ],
+      included: 'Included',
+      notIncluded: 'Not included',
+    },
+    process: {
+      title: 'How we work',
+      steps: [
+        {
+          title: '20-minute call',
+          description: 'We understand your situation and recommend the level that makes sense. If none does, we will tell you.',
+        },
+        {
+          title: 'Fixed proposal and NDA',
+          description: 'A fixed price within the range, with scope and timeline in writing. We sign an NDA before seeing anything.',
+        },
+        {
+          title: 'Access and review',
+          description: 'You give us read-only access and we talk to whoever we need to. We coordinate with your vendor without disrupting their work.',
+        },
+        {
+          title: 'Report and leadership session',
+          description: 'We present the results in business language and answer every question.',
+        },
+      ],
+    },
+    faq: {
+      title: 'Frequently asked questions',
+      items: [
+        {
+          question: 'Why a price range and not a single figure?',
+          answer:
+            'It depends on the size of your systems and the number of vendors. After the initial call we give you a fixed price within the range, and that is what you pay.',
+        },
+        {
+          question: 'Do you need access to our code and systems?',
+          answer:
+            'Yes, read-only and under a non-disclosure agreement. If you do not know who holds that access, finding out is already part of the job.',
+        },
+        {
+          question: 'What if my vendor does not cooperate?',
+          answer:
+            'We frame the audit as a review, not a trial, and most vendors cooperate. If one does not, that is an important finding for you too.',
+        },
+        {
+          question: 'Can I start with the Health Check and expand later?',
+          answer:
+            'Yes. It is the usual starting point: if the Health Check uncovers risks that deserve deeper analysis, the Full Audit builds on the work already done.',
+        },
+        {
+          question: 'What happens after the audit?',
+          answer:
+            'The report is yours and you can act on it with whoever you like. If you would rather we do it, we can continue as your Fractional CTO or through a Rescue Project.',
+        },
+      ],
+    },
   },
   guarantees: {
     title: 'We work with clear rules, not fine print.',
@@ -175,6 +318,16 @@ export const en: Dictionary = {
         'IT Manager',
       ],
       rolePlaceholder: 'Select your role',
+      service: 'Service of interest (optional)',
+      servicePlaceholder: 'Select a service',
+      serviceOptions: [
+        { value: 'audit-check', label: 'Tech Health Check' },
+        { value: 'audit-full', label: 'Full Technical Audit' },
+        { value: 'audit-diligence', label: 'Investment & Exit Readiness' },
+        { value: 'fractional-cto', label: 'Fractional CTO' },
+        { value: 'rescue', label: 'Rescue Project' },
+        { value: 'unsure', label: 'Not sure yet' },
+      ],
       message: 'Message / Platform URL',
       privacyConsent: 'I have read and accept the',
       privacyLink: 'privacy policy',

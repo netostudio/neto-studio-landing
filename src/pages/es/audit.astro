@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import AuditIntro from '../../components/AuditIntro.astro';
+import AuditTiers from '../../components/AuditTiers.astro';
+import AuditComparison from '../../components/AuditComparison.astro';
+import AuditPreview from '../../components/AuditPreview.astro';
+import AuditProcess from '../../components/AuditProcess.astro';
+import AuditFaq from '../../components/AuditFaq.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import MobileCta from '../../components/MobileCta.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t.auditPage.meta.title} description={t.auditPage.meta.description}>
+  <Header />
+  <main>
+    <AuditIntro />
+    <AuditTiers />
+    <AuditComparison />
+    <AuditPreview />
+    <AuditProcess />
+    <AuditFaq />
+    <Contact />
+  </main>
+  <Footer />
+  <MobileCta />
+</Layout>

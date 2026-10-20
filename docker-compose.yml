@@ -1,6 +1,6 @@
 services:
-  # Dev server (astro dev, hot reload) on :4321. /api/contact is proxied to
-  # Make by the Vite proxy in astro.config.mjs, using MAKE_WEBHOOK_* from .env.
+  # Dev server (astro dev, hot reload) on :4321. /api/contact is forwarded to
+  # Make by the contactDevProxy Vite plugin in astro.config.mjs, using MAKE_WEBHOOK_* from .env.
   web:
     build:
       context: .

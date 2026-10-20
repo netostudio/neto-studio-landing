@@ -80,6 +80,18 @@ const privacyHref = getRelativeLocaleUrl(lang, 'privacy');
     </div>
 
     <div class="flex flex-col gap-2 sm:col-span-2">
+      <label for="service" class="text-sm font-medium text-ink">{t.contact.fields.service}</label>
+      <select
+        id="service"
+        name="service"
+        class="rounded-md border border-black/15 bg-black/[0.02] px-4 py-3 text-sm text-ink focus:border-black/30 focus:outline-none"
+      >
+        <option value="" selected>{t.contact.fields.servicePlaceholder}</option>
+        {t.contact.fields.serviceOptions.map((option) => <option value={option.value}>{option.label}</option>)}
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-2 sm:col-span-2">
       <label for="message" class="text-sm font-medium text-ink">{t.contact.fields.message}</label>
       <textarea
         id="message"
@@ -122,6 +134,14 @@ const privacyHref = getRelativeLocaleUrl(lang, 'privacy');
   const form = document.querySelector<HTMLFormElement>('#contact-form');
   const status = document.querySelector<HTMLParagraphElement>('#contact-status');
   const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const serviceSelect = document.querySelector<HTMLSelectElement>('#service');
+
+  // CTAs that link here carry data-service, which pre-selects the matching option.
+  document.querySelectorAll<HTMLElement>('[data-service]').forEach((cta) => {
+    cta.addEventListener('click', () => {
+      if (serviceSelect && cta.dataset.service) serviceSelect.value = cta.dataset.service;
+    });
+  });
 
   function showStatus(message: string, ok: boolean) {
     if (!status) return;

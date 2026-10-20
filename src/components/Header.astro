@@ -8,6 +8,7 @@ const t = useTranslations(lang);
 // Anchors point to the home page of the current language, so they also work
 // from the legal pages and never send Spanish visitors to the English home.
 const homeHref = getRelativeLocaleUrl(lang);
+const auditHref = getRelativeLocaleUrl(lang, 'audit');
 const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
 const scheduleHref = `${homeHref}#contact`;
 ---
@@ -20,7 +21,7 @@ const scheduleHref = `${homeHref}#contact`;
 
     <nav class="hidden items-center gap-8 text-sm text-muted md:flex">
       <a href={`${homeHref}#services`} class="transition-colors hover:text-ink">{t.nav.services}</a>
-      <a href={`${homeHref}#audit-preview`} class="transition-colors hover:text-ink">{t.nav.methodology}</a>
+      <a href={auditHref} class="transition-colors hover:text-ink">{t.nav.audit}</a>
       <a href={`${homeHref}#about`} class="transition-colors hover:text-ink">{t.nav.about}</a>
     </nav>
 
