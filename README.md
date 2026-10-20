@@ -71,7 +71,7 @@ browser -> POST /api/contact -> Worker (max 16 KB, adds x-make-apikey) -> Make w
 ```
 
 - **Production**: `worker/index.ts` runs as a Cloudflare Worker only for `/api/*` (static pages never invoke it) and reads `MAKE_WEBHOOK_URL` and `MAKE_WEBHOOK_APIKEY` from the Worker secrets. If they are missing it answers 500. Per-IP rate limiting is a Cloudflare rate limiting rule (see "Deployment").
-- **Local**: the `worker` service runs the same Worker with `wrangler dev`, and `astro dev` (`web` service) proxies `/api/contact` the same way (see `astro.config.mjs`). Both read the variables from `.env`.
+- **Local**: the `worker` service runs the same Worker with `wrangler dev`, and `astro dev` (`web` service) forwards `/api/contact` the same way through a dev middleware (`contactDevProxy` in `astro.config.mjs`). Both read the variables from `.env`.
 - `make test-contact` sends one real submission to `http://localhost:8788/api/contact`: it creates a lead named `[BORRAR]` in Holded and sends the notification. Delete the lead afterwards.
 - The Holded and Slack credentials live only in the Make scenario.
 
