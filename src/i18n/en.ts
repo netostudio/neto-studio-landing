@@ -77,7 +77,6 @@ export const en: Dictionary = {
       list: [
         'Architecture and technical strategy',
         'Coordination of your technical team and external vendors',
-        'Direct work on the code when needed (on an ad hoc basis)',
         'Technical point of contact for clients, vendors, and partners',
       ],
       price: 'From €3,000/mo + VAT',
