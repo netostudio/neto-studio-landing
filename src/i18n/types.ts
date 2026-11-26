@@ -5,7 +5,8 @@ export type AuditTier = {
   price: string;
   timeline: string;
   includes: string[];
-  deliverable: string;
+  method: string;
+  deliverables: string[];
   cta: string;
 };
 
@@ -56,46 +57,32 @@ export type Dictionary = {
       cta: string;
     };
   };
-  auditPreview: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    riskMatrixTitle: string;
-    riskMatrixActionLabel: string;
-    risks: { 
-      level: 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
-      levelLabel: string;
-      finding: string;
-      action: string 
-    }[];
-    roadmapTitle: string;
-    roadmap: { period: string; label: string }[];
-  };
   auditPage: {
     meta: { title: string; description: string };
     intro: {
       badge: string;
       title: string;
       subtitle: string;
+      guarantees: string[];
       unsureNote: string;
       unsureCta: string;
     };
     tiers: {
-      highlightLabel: string;
       priceNote: string;
       timelineLabel: string;
       includesLabel: string;
-      deliverableLabel: string;
-      check: AuditTier;
-      full: AuditTier;
-      diligence: AuditTier;
+      methodLabel: string;
+      deliverablesLabel: string;
+      systems: AuditTier;
+      software: AuditTier;
+      boundary: { title: string; body: string[] };
     };
     comparison: {
       title: string;
       featureLabel: string;
-      // One value per tier (check, full, diligence): true renders a check mark,
+      // One value per audit (systems, software): true renders a check mark,
       // false a dash, and a string is shown as is.
-      rows: { label: string; values: [boolean | string, boolean | string, boolean | string] }[];
+      rows: { label: string; values: [boolean | string, boolean | string] }[];
       included: string;
       notIncluded: string;
     };

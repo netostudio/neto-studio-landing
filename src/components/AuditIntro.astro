@@ -1,4 +1,5 @@
 ---
+import { Check } from '@lucide/astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -15,6 +16,16 @@ const t = useTranslations(lang);
   <p class="mx-auto mt-6 max-w-2xl text-lg text-muted">
     {t.auditPage.intro.subtitle}
   </p>
+  <ul class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
+    {
+      t.auditPage.intro.guarantees.map((item) => (
+        <li class="flex items-center gap-2 text-sm text-ink/90">
+          <Check class="h-4 w-4 shrink-0 text-emerald-500" stroke-width={2} />
+          <span>{item}</span>
+        </li>
+      ))
+    }
+  </ul>
   <p class="mt-6 text-sm text-muted">
     {t.auditPage.intro.unsureNote}{' '}
     <a href="#contact" data-service="unsure" class="font-medium text-ink underline underline-offset-4">

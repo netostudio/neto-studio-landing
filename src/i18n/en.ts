@@ -18,10 +18,10 @@ export const en: Dictionary = {
     subtitle:
       'CTO-level strategy and the engineering to deliver it. No rigid contracts.',
     ctaPrimary: 'Book a Technical Diagnostic',
-    ctaSecondary: 'See a Sample Audit',
+    ctaSecondary: 'See the Audits',
   },
   metrics: [
-    { value: 'From 3 days', label: 'Technical diagnostic with a prioritised plan' },
+    { value: '2 weeks', label: 'Audit with a prioritised plan' },
     { value: 'Clear pricing', label: 'Rates agreed upfront, no surprises' },
     { value: '30 days', label: 'Notice period, no lock-in' },
   ],
@@ -46,7 +46,7 @@ export const en: Dictionary = {
       {
         title: 'The cost and rigidity of an in-house CTO',
         description:
-          'EUR 80k-150k a year in salary, months of hiring, and the risk of getting the fit wrong. For most small and mid-sized businesses, it simply does not pay off.',
+          '80.000-150.000 € a year in salary, months of hiring, and the risk of getting the fit wrong. For most small and mid-sized businesses, it simply does not pay off.',
       },
     ],
   },
@@ -54,19 +54,19 @@ export const en: Dictionary = {
     title: 'A model built for the gap between the consultant and the software factory.',
     audit: {
       slug: 'neto / audit',
-      name: 'Technical Audit + Action Plan',
+      name: 'Audit + Action Plan',
       description:
-        'Three levels depending on what you need to know: from a check-up of a few days to full due diligence before raising or selling.',
-      listLabel: 'Levels',
+        'Find out what technology your business has, what risks it carries and what to do first. Two fixed-price audits, depending on whether you have a bespoke application.',
+      listLabel: 'Two audits',
       list: [
-        'Tech Health Check: 3-5 days',
-        'Full Technical Audit: 2-3 weeks',
-        'Investment & Exit Readiness: 3-4 weeks',
-        'Prioritised risks and an action plan at every level',
+        'Systems & Vendors, no custom code: about 2 weeks',
+        'Software, with custom code: about 3 weeks',
+        'Jargon-free report, prioritised risks and a 90-day plan',
+        'A systems inventory that stays with you',
       ],
-      price: 'From €1,500 + VAT',
-      priceNote: '3 levels, fixed price',
-      cta: 'See the 3 Levels',
+      price: '2.400 € or 5.000 € + VAT',
+      priceNote: '2 audits, fixed price',
+      cta: 'See the 2 Audits',
     },
     retainer: {
       slug: 'neto / lead',
@@ -79,7 +79,7 @@ export const en: Dictionary = {
         'Coordination of your technical team and external vendors',
         'Technical point of contact for clients, vendors, and partners',
       ],
-      price: 'From €3,000/mo + VAT',
+      price: 'From 3.000 €/mo + VAT',
       priceNote: 'Monthly subscription, 30-day notice',
       cta: 'Reserve Capacity',
     },
@@ -100,155 +100,143 @@ export const en: Dictionary = {
       cta: 'Request a Quote',
     },
   },
-  auditPreview: {
-    badge: 'Sample Deliverable',
-    title: 'This is what your Technical Audit report looks like.',
-    subtitle:
-      'Every audit ends in a prioritised, business-readable roadmap, not a PDF nobody opens again.',
-    riskMatrixTitle: 'Risk Impact Matrix',
-    riskMatrixActionLabel: 'Action',
-    risks: [
-      {
-        level: 'CRITICAL',
-        levelLabel: 'Critical',
-        finding: 'Active API keys/credentials exposed in git repository',
-        action: 'Immediate rotation and env var migration.',
-      },
-      {
-        level: 'HIGH',
-        levelLabel: 'High',
-        finding: 'Absence of CI/CD pipeline and outdated test suites',
-        action: 'GitHub Actions automation setup.',
-      },
-      {
-        level: 'MEDIUM',
-        levelLabel: 'Medium',
-        finding: 'Unversioned database migrations or unmanaged third-party libraries',
-        action: 'Migration versioning and dependency audit.',
-      },
-      {
-        level: 'LOW',
-        levelLabel: 'Low',
-        finding: 'Missing or outdated technical documentation',
-        action: 'Architecture docs and setup guide.',
-      },
-    ],
-    roadmapTitle: 'First 90 Days of the Roadmap',
-    roadmap: [
-      { period: 'Month 1', label: 'Critical sanitisation' },
-      { period: 'Month 2', label: 'Stabilisation and risk control' },
-      { period: 'Month 3', label: 'Speed in delivery and next steps' },
-    ],
-  },
   auditPage: {
     meta: {
-      title: 'Technical audit for SMEs and startups | neto.studio',
+      title: 'Technology audit for small and mid-sized businesses | neto.studio',
       description:
-        'Three fixed-price technical audit levels: a health check for SMEs that rely on a vendor, a full audit of in-house software, and technical readiness for investment or sale.',
+        'Two fixed-price audits for SMEs with no in-house technical staff: systems and vendors (2.400 € + VAT) or custom software (5.000 € + VAT). A jargon-free report and a 90-day plan.',
     },
     intro: {
-      badge: 'Technical Audit',
-      title: 'Know where your technology stands before you decide.',
+      badge: 'Audit',
+      title: 'Find out what technology your business really has before you decide.',
       subtitle:
-        'Three levels depending on what is at stake: understanding where you stand with your vendor, deciding the future of your software, or arriving prepared for an investment or sale. Always at a fixed price, with a report your leadership team can read.',
+        'For SMEs with no technical staff in-house. Before a technology investment, when a key person leaves, when you have doubts about a vendor or costs keep climbing: we tell you what you have, what the risks are and what to do first, in a report your leadership team can read.',
+      guarantees: ['Fixed, published price', 'NDA before we see anything', 'Read-only access', 'The report is yours'],
       unsureNote: 'Not sure which one you need?',
       unsureCta: 'We will tell you in a 20-minute call',
     },
     tiers: {
-      highlightLabel: 'For business-critical software',
-      priceNote: '+ VAT, fixed price after an initial call',
+      priceNote: '+ VAT, fixed price',
       timelineLabel: 'Timeline',
-      includesLabel: 'Includes',
-      deliverableLabel: 'Deliverable',
-      check: {
-        slug: 'neto / check',
-        name: 'Tech Health Check',
+      includesLabel: 'What we review',
+      methodLabel: 'How it works',
+      deliverablesLabel: 'What you get',
+      systems: {
+        slug: 'neto / systems',
+        name: 'Systems & Vendors Audit',
         forWho:
-          'For SMEs with no technical staff in-house that rely on a vendor or agency and want to know where they stand.',
-        price: '€1,500-€2,500',
-        timeline: '3-5 days',
+          'No custom code. For businesses that run on third-party platforms (ERP, online shop, CRM, cloud tools) connected to each other, with no bespoke application the business depends on.',
+        price: '2.400 €',
+        timeline: 'About 2 weeks from kick-off, depending on interview availability',
         includes: [
-          'Interviews with leadership and with the vendor or technical lead',
-          'Inventory of systems, tools, vendors and contracts: who holds the code and who holds the passwords',
-          'Automated analysis of dependencies, secrets and cloud configuration',
-          'Review of access control and backups',
+          'Systems map: what you have and what each part is for',
+          'Ownership and access: whose name the domain, accounts and subscriptions are in, and who has admin rights',
+          'Vendors and contracts: minimum terms, exit conditions and data ownership',
+          'Integrations and data: how data moves between systems and who maintains those connections',
+          'Continuity: backups, single points of failure and reliance on one person',
+          'Basic security: two-factor login, former employees\' accounts and permissions',
+          'Costs: what each tool costs and which licences go unused',
+          'Business fit: processes still run on paper or spreadsheets, and whether planned investments make sense',
         ],
-        deliverable:
-          'A 3-5 page, jargon-free report (overall traffic light, top risks and what to do first) and a 45-minute session with leadership.',
-        cta: 'Request a Health Check',
+        method:
+          'No code is read. Interviews with leadership, 1-2 key people and your main vendor. A review of contracts and invoices. Screen-sharing sessions with whoever runs each platform, so you never have to hand over passwords.',
+        deliverables: [
+          'A 6-10 page, jargon-free report: overall and per-area traffic lights, the three decisions for leadership, a systems map, what is working well, prioritised risks with indicative costs, a recommendation on each vendor (keep, renegotiate or change) and a 90-day plan',
+          'A systems inventory spreadsheet that stays with you and that you can keep up to date',
+          'A 60-minute presentation to leadership',
+          'A 30-minute follow-up call after 30 days',
+        ],
+        cta: 'Request a Systems Audit',
       },
-      full: {
-        slug: 'neto / audit',
-        name: 'Full Technical Audit',
+      software: {
+        slug: 'neto / software',
+        name: 'Software Audit',
         forWho:
-          'For SMEs with business-critical in-house software and startups that want to know where they stand before investing in a new phase.',
-        price: '€5,000-€8,000',
-        timeline: '2-3 weeks',
+          'With custom code. For businesses that depend on a bespoke application, whether built by an agency, a freelancer or with AI.',
+        price: '5.000 €',
+        timeline: 'About 3 weeks from kick-off',
         includes: [
-          'Review of 8 areas: architecture, code, operations, security, data, IP and dependencies, team and processes, and costs',
-          'Review of the vendor contract: code ownership, lock-in and what happens if they leave',
-          'Findings prioritised by impact and cost',
+          'Everything in the Systems & Vendors Audit',
+          'Application architecture: how it is built and whether it will cope with what is coming',
+          'Code quality and how easy it is to maintain',
+          'Application security',
+          'Dependencies: the third-party components it is built on',
+          'Deployment and backups',
           'The key decision: keep, rebuild, replace with an off-the-shelf product or change vendor',
         ],
-        deliverable: 'A 6-12 month roadmap and a presentation to leadership.',
-        cta: 'Request an Audit',
-      },
-      diligence: {
-        slug: 'neto / diligence',
-        name: 'Investment & Exit Readiness',
-        forWho:
-          'For startups ahead of a Series A or B, or SMEs ahead of a sale or bringing in a partner.',
-        price: '€8,000-€12,000',
-        timeline: '3-4 weeks + follow-up',
-        includes: [
-          'Full review from the buyer or investor side: what they would find and how it would affect the price',
-          'Prioritised remediation plan before going to market',
-          'Technical data room prepared: document checklist and what is missing',
-          'Mock due diligence interviews with your CTO',
-          'Follow-up review after 60 days to check what has been fixed',
+        method:
+          'The same as the Systems & Vendors Audit, plus read-only access to the application and its code.',
+        deliverables: [
+          'The same jargon-free report, including the application review and a recommendation on its future',
+          'A systems inventory spreadsheet that stays with you and that you can keep up to date',
+          'A 60-minute presentation to leadership',
+          'A 30-minute follow-up call after 30 days',
         ],
-        deliverable: 'Remediation plan, technical data room ready and a due diligence rehearsal.',
-        cta: 'Request Readiness Review',
+        cta: 'Request a Software Audit',
+      },
+      boundary: {
+        title: 'Which one is right for you?',
+        body: [
+          'If your business depends on a bespoke application, the Software Audit.',
+          'If you only have integrations or the odd script, the Systems & Vendors Audit: we list those pieces and check who maintains them, but we do not read their code.',
+          'If you are not sure, we will tell you in the initial call.',
+        ],
       },
     },
     comparison: {
-      title: 'What each level includes',
+      title: 'What each audit includes',
       featureLabel: 'Scope',
       rows: [
-        { label: 'Interviews with leadership and vendor', values: [true, true, true] },
-        { label: 'Inventory of systems, access and backups', values: [true, true, true] },
-        { label: 'Automated analysis (dependencies, secrets, cloud)', values: [true, true, true] },
-        { label: 'In-depth code and architecture review', values: [false, true, true] },
-        { label: 'Vendor contract review', values: [false, true, true] },
-        { label: 'Keep / rebuild / replace / change decision', values: [false, true, true] },
-        { label: 'Roadmap', values: ['What to do first', '6-12 months', 'Remediation plan'] },
-        { label: 'Buyer or investor view', values: [false, false, true] },
-        { label: 'Technical data room', values: [false, false, true] },
-        { label: 'Mock due diligence', values: [false, false, true] },
-        { label: '60-day follow-up', values: [false, false, true] },
-        { label: 'Timeline', values: ['3-5 days', '2-3 weeks', '3-4 weeks'] },
+        { label: 'Systems map', values: [true, true] },
+        { label: 'Ownership and access', values: [true, true] },
+        { label: 'Vendors and contracts', values: [true, true] },
+        { label: 'Integrations and data', values: [true, true] },
+        { label: 'Continuity and backups', values: [true, true] },
+        { label: 'Basic security', values: [true, true] },
+        { label: 'Costs and unused licences', values: [true, true] },
+        { label: 'Business fit', values: [true, true] },
+        { label: 'Review of the bespoke application (read-only)', values: [false, true] },
+        { label: 'Keep / rebuild / replace / change vendor decision', values: [false, true] },
+        { label: 'Jargon-free report and 90-day plan', values: [true, true] },
+        { label: 'Systems inventory spreadsheet', values: [true, true] },
+        { label: '60-minute presentation to leadership', values: [true, true] },
+        { label: '30-day follow-up', values: [true, true] },
+        { label: 'Timeline', values: ['About 2 weeks', 'About 3 weeks'] },
+        { label: 'Price', values: ['2.400 € + VAT', '5.000 € + VAT'] },
       ],
       included: 'Included',
       notIncluded: 'Not included',
     },
     process: {
-      title: 'How we work',
+      title: 'How it works',
       steps: [
         {
           title: '20-minute call',
-          description: 'We understand your situation and recommend the level that makes sense. If none does, we will tell you.',
+          description:
+            'We get to know your situation and tell you which audit fits. If neither does, we will tell you that too.',
         },
         {
-          title: 'Fixed proposal and NDA',
-          description: 'A fixed price within the range, with scope and timeline in writing. We sign an NDA before seeing anything.',
+          title: 'Proposal and NDA',
+          description:
+            'Fixed price, scope and timeline in writing. We sign a non-disclosure agreement before we see anything. 50% is paid to get started.',
         },
         {
-          title: 'Access and review',
-          description: 'You give us read-only access and we talk to whoever we need to. We coordinate with your vendor without disrupting their work.',
+          title: 'Kick-off',
+          description: 'A meeting with leadership and a short questionnaire in business language, not technical terms.',
         },
         {
-          title: 'Report and leadership session',
-          description: 'We present the results in business language and answer every question.',
+          title: 'Interviews and review',
+          description:
+            'We talk to whoever we need to, your vendor included, without getting in the way of their work. Always with read-only access.',
+        },
+        {
+          title: 'Presentation',
+          description:
+            'We present the findings to leadership. The remaining 50% is paid before the session, and the report and inventory are handed over once it is received.',
+        },
+        {
+          title: '30-day follow-up',
+          description: 'We review together what has been done and what has stalled.',
         },
       ],
     },
@@ -256,14 +244,23 @@ export const en: Dictionary = {
       title: 'Frequently asked questions',
       items: [
         {
-          question: 'Why a price range and not a single figure?',
+          question: 'Which of the two do I need?',
           answer:
-            'It depends on the size of your systems and the number of vendors. After the initial call we give you a fixed price within the range, and that is what you pay.',
+            'If your business depends on a bespoke application, the Software Audit. If you run on third-party platforms with, at most, integrations or the odd script, the Systems & Vendors Audit: we list those pieces and check who maintains them, but we do not read their code. If you are not sure, we will sort it out in the initial call.',
         },
         {
-          question: 'Do you need access to our code and systems?',
+          question: 'Why a fixed price rather than a quote?',
           answer:
-            'Yes, read-only and under a non-disclosure agreement. If you do not know who holds that access, finding out is already part of the job.',
+            'Because the scope of each audit is defined upfront: the same areas, the same deliverables and the same timeline. You know what you will pay before we start.',
+        },
+        {
+          question: 'How does payment work?',
+          answer: '50% when we start and the remaining 50% before the presentation of findings.',
+        },
+        {
+          question: 'Do you need access to our systems?',
+          answer:
+            'Read-only, and under a non-disclosure agreement. In the Systems & Vendors Audit almost everything happens in screen-sharing sessions with whoever runs each platform, so you never have to give us passwords.',
         },
         {
           question: 'What if my vendor does not cooperate?',
@@ -271,14 +268,14 @@ export const en: Dictionary = {
             'We frame the audit as a review, not a trial, and most vendors cooperate. If one does not, that is an important finding for you too.',
         },
         {
-          question: 'Can I start with the Health Check and expand later?',
+          question: 'Can I start with the Systems & Vendors Audit and upgrade later?',
           answer:
-            'Yes. It is the usual starting point: if the Health Check uncovers risks that deserve deeper analysis, the Full Audit builds on the work already done.',
+            'Yes. If a bespoke application turns up that deserves a proper look, you can upgrade to the Software Audit: we build on the work already done and deduct the 2.400 € you have already paid.',
         },
         {
           question: 'What happens after the audit?',
           answer:
-            'The report is yours and you can act on it with whoever you like. If you would rather we do it, we can continue as your Fractional CTO or through a Rescue Project.',
+            'The report and inventory are yours, and you can carry out the plan with whoever you like: the recommendations do not depend on who implements them. If you prefer, we can stay on with ongoing technical leadership or help with the implementation.',
         },
       ],
     },
@@ -321,9 +318,8 @@ export const en: Dictionary = {
       service: 'Service of interest (optional)',
       servicePlaceholder: 'Select a service',
       serviceOptions: [
-        { value: 'audit-check', label: 'Tech Health Check' },
-        { value: 'audit-full', label: 'Full Technical Audit' },
-        { value: 'audit-diligence', label: 'Investment & Exit Readiness' },
+        { value: 'audit-check', label: 'Systems & Vendors Audit' },
+        { value: 'audit-full', label: 'Software Audit' },
         { value: 'fractional-cto', label: 'Fractional CTO' },
         { value: 'rescue', label: 'Rescue Project' },
         { value: 'unsure', label: 'Not sure yet' },
