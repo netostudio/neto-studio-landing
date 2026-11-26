@@ -6,7 +6,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// The audit card leads to the page with its three levels; the others go straight
+// The audit card leads to the page with its two audits; the others go straight
 // to the contact form with the matching service pre-selected (see Contact.astro).
 const services = [
   { ...t.catalog.audit, href: getRelativeLocaleUrl(lang, 'audit'), service: undefined },

@@ -5,10 +5,10 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { comparison, tiers } = t.auditPage;
-const tierNames = [tiers.check.name, tiers.full.name, tiers.diligence.name];
+const tierNames = [tiers.systems.name, tiers.software.name];
 ---
 
-<!-- Desktop only: on mobile the tier cards already carry the same information. -->
+<!-- Desktop only: on mobile the audit cards already carry the same information. -->
 <section class="mx-auto hidden max-w-6xl px-6 py-16 md:block">
   <h2 class="text-center text-3xl font-bold tracking-tight text-ink">{comparison.title}</h2>
 
@@ -17,7 +17,7 @@ const tierNames = [tiers.check.name, tiers.full.name, tiers.diligence.name];
       <thead class="border-b border-black/10">
         <tr>
           <th scope="col" class="px-6 py-4 font-semibold text-muted">{comparison.featureLabel}</th>
-          {tierNames.map((name) => <th scope="col" class="w-48 px-6 py-4 text-center font-semibold text-ink">{name}</th>)}
+          {tierNames.map((name) => <th scope="col" class="w-64 px-6 py-4 text-center font-semibold text-ink">{name}</th>)}
         </tr>
       </thead>
       <tbody class="divide-y divide-black/10">

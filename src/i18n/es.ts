@@ -18,10 +18,10 @@ export const es: Dictionary = {
     subtitle:
       'Estrategia de nivel CTO y la ingeniería para llevarla a cabo. Sin contratos rígidos.',
     ctaPrimary: 'Agendar Diagnóstico Técnico',
-    ctaSecondary: 'Ver Ejemplo de Auditoría',
+    ctaSecondary: 'Ver las Auditorías',
   },
   metrics: [
-    { value: 'Desde 3 días', label: 'Diagnóstico técnico con plan priorizado' },
+    { value: '2 semanas', label: 'Auditoría con plan priorizado' },
     { value: 'Precios claros', label: 'Tarifa pactada de antemano, sin sorpresas' },
     { value: '30 días', label: 'De preaviso, sin permanencia' },
   ],
@@ -46,7 +46,7 @@ export const es: Dictionary = {
       {
         title: 'El coste y la rigidez de un director técnico en plantilla',
         description:
-          '80.000€-150.000€ al año de salario, meses de proceso de selección y el riesgo de acertar o no con el perfil. Para la mayoría de PYMEs, sencillamente no compensa.',
+          '80.000-150.000 € al año de salario, meses de proceso de selección y el riesgo de acertar o no con el perfil. Para la mayoría de PYMEs, sencillamente no compensa.',
       },
     ],
   },
@@ -54,19 +54,19 @@ export const es: Dictionary = {
     title: 'Un modelo diseñado para el hueco entre el consultor y la fábrica de software.',
     audit: {
       slug: 'neto / audit',
-      name: 'Auditoría Técnica + Plan de Acción',
+      name: 'Auditoría + Plan de Acción',
       description:
-        'Tres niveles según lo que necesites saber: de un chequeo de pocos días a una due diligence completa antes de invertir o vender.',
-      listLabel: 'Niveles',
+        'Para saber qué tecnología tiene tu empresa, qué riesgos corre y qué hacer primero. Dos auditorías con precio cerrado, según tengas o no una aplicación hecha a medida.',
+      listLabel: 'Dos auditorías',
       list: [
-        'Chequeo técnico: 3-5 días',
-        'Auditoría técnica completa: 2-3 semanas',
-        'Preparación para due diligence: 3-4 semanas',
-        'Riesgos priorizados y plan de acción en todos los niveles',
+        'Sistemas y proveedores, sin código propio: unas 2 semanas',
+        'Software, con código propio: unas 3 semanas',
+        'Informe sin jerga, riesgos priorizados y plan a 90 días',
+        'Inventario de sistemas que se queda en tu empresa',
       ],
-      price: 'Desde 1.500€ + IVA',
-      priceNote: '3 niveles, precio cerrado',
-      cta: 'Ver los 3 Niveles',
+      price: '2.400 € o 5.000 € + IVA',
+      priceNote: '2 auditorías, precio cerrado',
+      cta: 'Ver las 2 Auditorías',
     },
     retainer: {
       slug: 'neto / lead',
@@ -79,7 +79,7 @@ export const es: Dictionary = {
         'Coordinación del equipo técnico y de los proveedores externos',
         'Interlocución técnica con clientes, proveedores y socios',
       ],
-      price: 'Desde 3.000€/mes + IVA',
+      price: 'Desde 3.000 €/mes + IVA',
       priceNote: 'Suscripción mensual, 30 días de preaviso',
       cta: 'Reservar Plazo',
     },
@@ -100,155 +100,143 @@ export const es: Dictionary = {
       cta: 'Solicitar Presupuesto',
     },
   },
-  auditPreview: {
-    badge: 'Ejemplo de Entregable',
-    title: 'Así es el informe de tu Auditoría Técnica.',
-    subtitle:
-      'Cada auditoría termina en una hoja de ruta priorizada y legible para negocio, no en un PDF que nadie vuelve a abrir.',
-    riskMatrixTitle: 'Matriz de Impacto de Riesgos',
-    riskMatrixActionLabel: 'Acción',
-    risks: [
-      {
-        level: 'CRITICAL',
-        levelLabel: 'Crítico',
-        finding: 'Credenciales/API keys activas expuestas en el repositorio git',
-        action: 'Rotación inmediata y migración a variables de entorno.',
-      },
-      {
-        level: 'HIGH',
-        levelLabel: 'Alto',
-        finding: 'Ausencia de pipeline de CI/CD y suites de test desactualizadas',
-        action: 'Configuración de automatización con GitHub Actions.',
-      },
-      {
-        level: 'MEDIUM',
-        levelLabel: 'Medio',
-        finding: 'Migraciones de base de datos sin versionar o librerías de terceros sin gestionar',
-        action: 'Versionado de migraciones y auditoría de dependencias.',
-      },
-      {
-        level: 'LOW',
-        levelLabel: 'Bajo',
-        finding: 'Documentación técnica inexistente o desactualizada',
-        action: 'Documentación de arquitectura y guía de puesta en marcha.',
-      },
-    ],
-    roadmapTitle: 'Primeros 90 días de la hoja de ruta',
-    roadmap: [
-      { period: 'Mes 1', label: 'Saneamiento crítico' },
-      { period: 'Mes 2', label: 'Estabilización y control de riesgos' },
-      { period: 'Mes 3', label: 'Velocidad en la entrega y próximos pasos' },
-    ],
-  },
   auditPage: {
     meta: {
-      title: 'Auditoría técnica para PYMEs y startups | neto.studio',
+      title: 'Auditoría tecnológica para PYMEs | neto.studio',
       description:
-        'Tres niveles de auditoría técnica a precio cerrado: chequeo para PYMEs que dependen de un proveedor, auditoría completa de software propio y preparación técnica para inversión o venta.',
+        'Dos auditorías con precio cerrado para PYMEs sin equipo técnico: sistemas y proveedores (2.400 € + IVA) y software hecho a medida (5.000 € + IVA). Informe sin jerga y plan a 90 días.',
     },
     intro: {
-      badge: 'Auditoría Técnica',
-      title: 'Comprueba en qué estado está tu tecnología antes de decidir.',
+      badge: 'Auditoría',
+      title: 'Descubre qué tecnología tiene tu empresa antes de decidir.',
       subtitle:
-        'Tres niveles según lo que está en juego: entender qué te entrega tu proveedor, decidir el futuro de tu software o llegar preparado a una inversión o venta. Siempre con precio cerrado y un informe que dirección puede leer.',
+        'Para PYMEs sin nadie técnico dentro. Antes de una inversión en tecnología, cuando se va una persona clave, si dudas de un proveedor o si los costes no paran de crecer: te decimos qué tienes, qué riesgos corres y qué hacer primero, en un informe que la dirección puede leer.',
+      guarantees: ['Precio cerrado y público', 'NDA antes de ver nada', 'Acceso de solo lectura', 'El informe es tuyo'],
       unsureNote: '¿No sabes cuál necesitas?',
       unsureCta: 'Te lo decimos en una llamada de 20 minutos',
     },
     tiers: {
-      highlightLabel: 'Para software propio crítico',
-      priceNote: '+ IVA, precio cerrado tras una llamada inicial',
+      priceNote: '+ IVA, precio cerrado',
       timelineLabel: 'Plazo',
-      includesLabel: 'Incluye',
-      deliverableLabel: 'Entregable',
-      check: {
-        slug: 'neto / check',
-        name: 'Chequeo técnico',
+      includesLabel: 'Qué se revisa',
+      methodLabel: 'Cómo se hace',
+      deliverablesLabel: 'Qué recibes',
+      systems: {
+        slug: 'neto / systems',
+        name: 'Auditoría de sistemas y proveedores',
         forWho:
-          'Para PYMEs sin nadie técnico dentro que dependen de un proveedor o agencia y quieren entender su situación.',
-        price: '1.500€-2.500€',
-        timeline: '3-5 días',
+          'Sin código propio. Para empresas que trabajan con plataformas de terceros (ERP, tienda online, CRM, herramientas en la nube) conectadas entre sí, sin una aplicación hecha a medida de la que dependa el negocio.',
+        price: '2.400 €',
+        timeline: 'Unas 2 semanas desde el arranque, según las agendas para las entrevistas',
         includes: [
-          'Entrevista con dirección y con el proveedor o responsable técnico',
-          'Inventario de sistemas, herramientas, proveedores y contratos: quién tiene el código y quién las contraseñas',
-          'Análisis automático de dependencias, secretos y configuración de la nube',
-          'Revisión de accesos y copias de seguridad',
+          'Mapa de sistemas: qué tienes y para qué sirve cada cosa',
+          'Propiedad y accesos: a nombre de quién están el dominio, las cuentas y las suscripciones, y quién es administrador',
+          'Proveedores y contratos: permanencias, condiciones de salida y propiedad de los datos',
+          'Integraciones y datos: cómo pasan los datos de un sistema a otro y quién mantiene esas conexiones',
+          'Continuidad: copias de seguridad, puntos únicos de fallo y dependencia de una persona',
+          'Seguridad básica: doble factor, cuentas de exempleados y permisos',
+          'Costes: cuánto se paga por cada herramienta y licencias sin uso',
+          'Encaje con el negocio: procesos que siguen en papel o Excel, y si las inversiones previstas tienen sentido',
         ],
-        deliverable:
-          'Informe de 3-5 páginas sin jerga (semáforo general, riesgos principales y qué hacer primero) y sesión de 45 minutos con dirección.',
-        cta: 'Solicitar Chequeo',
+        method:
+          'Sin leer código. Entrevistas con la dirección, con 1-2 personas clave y con el proveedor principal. Revisión de contratos y facturas. Sesiones de pantalla compartida con quien administra cada plataforma, así que no hace falta darnos contraseñas.',
+        deliverables: [
+          'Informe de 6-10 páginas sin jerga: semáforo general y por área, las tres decisiones de la dirección, mapa de sistemas, qué está bien, riesgos priorizados con coste orientativo, recomendación sobre cada proveedor (mantener, renegociar o cambiar) y plan a 90 días',
+          'Inventario de sistemas en hoja de cálculo, que se queda en tu empresa y puedes mantener',
+          'Sesión de presentación de 60 minutos con la dirección',
+          'Llamada de seguimiento de 30 minutos a los 30 días',
+        ],
+        cta: 'Solicitar Auditoría de Sistemas',
       },
-      full: {
-        slug: 'neto / audit',
-        name: 'Auditoría técnica completa',
+      software: {
+        slug: 'neto / software',
+        name: 'Auditoría de software',
         forWho:
-          'Para PYMEs con software propio crítico y startups que quieren saber dónde están antes de invertir en una nueva fase.',
-        price: '5.000€-8.000€',
-        timeline: '2-3 semanas',
+          'Con código propio. Para empresas cuyo negocio depende de una aplicación hecha a medida, por una agencia, un freelance o con IA.',
+        price: '5.000 €',
+        timeline: 'Unas 3 semanas desde el arranque',
         includes: [
-          'Revisión de 8 áreas: arquitectura, código, operaciones, seguridad, datos, propiedad intelectual y dependencias, equipo y procesos, y costes',
-          'Revisión del contrato con el proveedor: propiedad del código, permanencia y qué pasa si se va',
-          'Hallazgos priorizados por impacto y coste',
-          'La decisión clave: mantener, rehacer, sustituir por un producto estándar o cambiar de proveedor',
+          'Todo lo de la auditoría de sistemas y proveedores',
+          'Arquitectura de la aplicación: cómo está construida y si aguanta lo que viene',
+          'Calidad del código y facilidad para mantenerlo',
+          'Seguridad de la aplicación',
+          'Dependencias: las piezas de terceros sobre las que está construida',
+          'Despliegue y copias de seguridad',
+          'La decisión clave: mantener, reconstruir, sustituir por un producto estándar o cambiar de proveedor',
         ],
-        deliverable: 'Hoja de ruta a 6-12 meses y presentación a dirección.',
-        cta: 'Solicitar Auditoría',
+        method:
+          'Lo mismo que en la auditoría de sistemas y proveedores, más acceso de solo lectura a la aplicación y a su código.',
+        deliverables: [
+          'El mismo informe sin jerga, con la revisión de la aplicación y la recomendación sobre su futuro',
+          'Inventario de sistemas en hoja de cálculo, que se queda en tu empresa y puedes mantener',
+          'Sesión de presentación de 60 minutos con la dirección',
+          'Llamada de seguimiento de 30 minutos a los 30 días',
+        ],
+        cta: 'Solicitar Auditoría de Software',
       },
-      diligence: {
-        slug: 'neto / diligence',
-        name: 'Preparación para due diligence',
-        forWho:
-          'Para startups antes de una Serie A/B o PYMEs antes de vender o dar entrada a un socio.',
-        price: '8.000€-12.000€',
-        timeline: '3-4 semanas + seguimiento',
-        includes: [
-          'Revisión completa vista desde el lado del comprador o inversor: lo que encontraría y cómo afectaría al precio',
-          'Plan de corrección priorizado para antes de salir al mercado',
-          'Sala de datos técnica preparada: lista de documentos y qué falta',
-          'Simulacro de entrevistas de due diligence con el CTO',
-          'Revisión de seguimiento a los 60 días para comprobar qué se ha corregido',
+      boundary: {
+        title: '¿Cuál te corresponde?',
+        body: [
+          'Si tu negocio depende de una aplicación hecha a medida, la auditoría de software.',
+          'Si solo hay integraciones o scripts sueltos, la de sistemas y proveedores: esas piezas se inventarían y se comprueba quién las mantiene, pero no se lee su código.',
+          'Si no lo tienes claro, te lo decimos en la llamada inicial.',
         ],
-        deliverable: 'Plan de corrección, sala de datos técnica lista y simulacro de due diligence.',
-        cta: 'Solicitar Preparación',
       },
     },
     comparison: {
-      title: 'Qué incluye cada nivel',
+      title: 'Qué incluye cada auditoría',
       featureLabel: 'Alcance',
       rows: [
-        { label: 'Entrevista con dirección y proveedor', values: [true, true, true] },
-        { label: 'Inventario de sistemas, accesos y copias de seguridad', values: [true, true, true] },
-        { label: 'Análisis automático (dependencias, secretos, nube)', values: [true, true, true] },
-        { label: 'Revisión a fondo de código y arquitectura', values: [false, true, true] },
-        { label: 'Revisión del contrato con el proveedor', values: [false, true, true] },
-        { label: 'Decisión mantener / rehacer / sustituir / cambiar', values: [false, true, true] },
-        { label: 'Hoja de ruta', values: ['Qué hacer primero', '6-12 meses', 'Plan de corrección'] },
-        { label: 'Vista del comprador o inversor', values: [false, false, true] },
-        { label: 'Sala de datos técnica', values: [false, false, true] },
-        { label: 'Simulacro de due diligence', values: [false, false, true] },
-        { label: 'Seguimiento a los 60 días', values: [false, false, true] },
-        { label: 'Plazo', values: ['3-5 días', '2-3 semanas', '3-4 semanas'] },
+        { label: 'Mapa de sistemas', values: [true, true] },
+        { label: 'Propiedad y accesos', values: [true, true] },
+        { label: 'Proveedores y contratos', values: [true, true] },
+        { label: 'Integraciones y datos', values: [true, true] },
+        { label: 'Continuidad y copias de seguridad', values: [true, true] },
+        { label: 'Seguridad básica', values: [true, true] },
+        { label: 'Costes y licencias sin uso', values: [true, true] },
+        { label: 'Encaje con el negocio', values: [true, true] },
+        { label: 'Revisión de la aplicación hecha a medida (solo lectura)', values: [false, true] },
+        { label: 'Decisión mantener / reconstruir / sustituir / cambiar de proveedor', values: [false, true] },
+        { label: 'Informe sin jerga y plan a 90 días', values: [true, true] },
+        { label: 'Inventario de sistemas en hoja de cálculo', values: [true, true] },
+        { label: 'Presentación de 60 minutos con la dirección', values: [true, true] },
+        { label: 'Seguimiento a los 30 días', values: [true, true] },
+        { label: 'Plazo', values: ['Unas 2 semanas', 'Unas 3 semanas'] },
+        { label: 'Precio', values: ['2.400 € + IVA', '5.000 € + IVA'] },
       ],
       included: 'Incluido',
       notIncluded: 'No incluido',
     },
     process: {
-      title: 'Cómo trabajamos',
+      title: 'Cómo funciona',
       steps: [
         {
           title: 'Llamada de 20 minutos',
-          description: 'Entendemos tu situación y te recomendamos el nivel que tiene sentido. Si ninguno lo tiene, te lo decimos.',
+          description:
+            'Entendemos tu situación y te decimos qué auditoría encaja. Si no encaja ninguna, también te lo decimos.',
         },
         {
-          title: 'Propuesta cerrada y NDA',
-          description: 'Precio fijo dentro del rango, alcance y calendario por escrito. Firmamos confidencialidad antes de ver nada.',
+          title: 'Propuesta y NDA',
+          description:
+            'Precio cerrado, alcance y plazos por escrito. Firmamos un acuerdo de confidencialidad (NDA) antes de ver nada. Se paga el 50 % para empezar.',
         },
         {
-          title: 'Accesos y revisión',
-          description: 'Nos das acceso de sólo lectura y hablamos con quien haga falta. Coordinamos con tu proveedor sin interrumpir su trabajo.',
+          title: 'Arranque',
+          description: 'Reunión con la dirección y un cuestionario corto en lenguaje de negocio, no técnico.',
         },
         {
-          title: 'Informe y sesión con dirección',
-          description: 'Te presentamos los resultados en lenguaje de negocio y respondemos a todas las preguntas.',
+          title: 'Entrevistas y revisión',
+          description:
+            'Hablamos con quien haga falta, también con tu proveedor, sin entorpecer su trabajo. Siempre con acceso de solo lectura.',
+        },
+        {
+          title: 'Presentación',
+          description:
+            'Presentamos los resultados a la dirección. El 50 % restante se paga antes de la sesión, y el informe y el inventario se entregan al recibirlo.',
+        },
+        {
+          title: 'Seguimiento a 30 días',
+          description: 'Revisamos juntos qué se ha hecho y qué se ha atascado.',
         },
       ],
     },
@@ -256,14 +244,23 @@ export const es: Dictionary = {
       title: 'Preguntas frecuentes',
       items: [
         {
-          question: '¿Por qué un rango de precio y no una cifra?',
+          question: '¿Cuál de las dos necesito?',
           answer:
-            'Depende del tamaño de tus sistemas y del número de proveedores. Tras la llamada inicial te damos un precio cerrado dentro del rango, y ese es el que pagas.',
+            'Si tu negocio depende de una aplicación hecha a medida, la auditoría de software. Si solo hay plataformas de terceros con integraciones o scripts sueltos, la de sistemas y proveedores: esas piezas se inventarían y se comprueba quién las mantiene, pero no se lee su código. Si no lo tienes claro, lo vemos en la llamada inicial.',
         },
         {
-          question: '¿Necesitáis acceso a nuestro código y sistemas?',
+          question: '¿Por qué un precio fijo y no a medida?',
           answer:
-            'Sí, en modo de sólo lectura y bajo acuerdo de confidencialidad. Si hoy no sabes quién tiene esos accesos, averiguarlo ya es parte del trabajo.',
+            'Porque el alcance de cada auditoría está definido de antemano: las mismas áreas, los mismos entregables y el mismo plazo. Sabes lo que vas a pagar antes de empezar.',
+        },
+        {
+          question: '¿Cómo se paga?',
+          answer: 'El 50 % al empezar y el 50 % restante antes de la presentación de resultados.',
+        },
+        {
+          question: '¿Necesitáis acceso a nuestros sistemas?',
+          answer:
+            'Solo de lectura y bajo acuerdo de confidencialidad. En la auditoría de sistemas y proveedores casi todo se hace en sesiones de pantalla compartida con quien administra cada plataforma, así que no hace falta darnos contraseñas.',
         },
         {
           question: '¿Y si mi proveedor no colabora?',
@@ -271,14 +268,14 @@ export const es: Dictionary = {
             'Planteamos la auditoría como una revisión, no como un juicio, y la mayoría de proveedores colabora. Si alguno no lo hace, eso también es un hallazgo importante para ti.',
         },
         {
-          question: '¿Puedo empezar por el Chequeo y ampliar después?',
+          question: '¿Puedo empezar por la auditoría de sistemas y proveedores y ampliar después?',
           answer:
-            'Sí. Es el punto de partida habitual: si el Chequeo detecta riesgos que merecen más análisis, la Auditoría Completa parte de lo ya hecho.',
+            'Sí. Si aparece una aplicación que merece una revisión a fondo, puedes ampliar a la auditoría de software: partimos del trabajo ya hecho y te descontamos los 2.400 € que ya has pagado.',
         },
         {
           question: '¿Qué pasa después de la auditoría?',
           answer:
-            'El informe es tuyo y puedes ejecutarlo con quien quieras. Si prefieres que lo hagamos nosotros, podemos seguir como Fractional CTO o con un Proyecto de Rescate.',
+            'El informe y el inventario son tuyos y puedes llevar a cabo el plan con quien quieras: las recomendaciones no dependen de quién las ejecute. Si lo prefieres, podemos acompañarte con dirección técnica continua o con la ejecución.',
         },
       ],
     },
@@ -321,9 +318,8 @@ export const es: Dictionary = {
       service: 'Servicio de interés (opcional)',
       servicePlaceholder: 'Selecciona un servicio',
       serviceOptions: [
-        { value: 'audit-check', label: 'Chequeo técnico' },
-        { value: 'audit-full', label: 'Auditoría técnica completa' },
-        { value: 'audit-diligence', label: 'Preparación para due diligence' },
+        { value: 'audit-check', label: 'Auditoría de sistemas y proveedores' },
+        { value: 'audit-full', label: 'Auditoría de software' },
         { value: 'fractional-cto', label: 'Fractional CTO' },
         { value: 'rescue', label: 'Proyecto de Rescate' },
         { value: 'unsure', label: 'Aún no lo sé' },
